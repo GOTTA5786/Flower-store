@@ -1,6 +1,6 @@
 import { Oswald, Cormorant_Garamond, Arizonia } from 'next/font/google'
  
-export const cormotant = Cormorant_Garamond({
+export const cormorant = Cormorant_Garamond({
     weight: ["300"],
   subsets: ['latin'],
   display: 'swap',

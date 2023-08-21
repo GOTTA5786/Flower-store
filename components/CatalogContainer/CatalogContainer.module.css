@@ -1,0 +1,96 @@
+.containerCatalog{
+    width: 100%;
+    margin-top: 83vh;
+}
+.CatalogWord{
+    padding-bottom: 10px;
+    margin-left: 200px;
+    color: #FFF;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.CatalogText1{
+    padding-bottom: 30px;
+    margin-left: 260px;
+    width: 540px;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 26px;
+    letter-spacing: 0.8px;
+}
+.CatalogText2{
+    margin-left: 260px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    font-size: 20px;
+}
+
+.purpleEffect{
+    position: absolute;
+    background: #7D2253;
+    filter: blur(125px);
+    border-radius: 707.545px;
+    width: 707.545px;
+    height: 236.872px;
+    transform: rotate(32.828deg);
+    z-index: 0;
+    top: 1700px;
+  }
+  .blueEffect{
+    position: absolute;
+    height: 150.054px;
+    transform: rotate(32.828deg);
+    border-radius: 679.44px;
+    background: #43FFD2;
+    filter: blur(130px);
+    width: 679.44px;
+    transform: rotate(32deg);
+    top: 1600px;
+    right: 0px;
+    z-index: 0;
+  }
+  .container1{
+    margin-left: 200px;
+    position: absolute;
+    height: 310px;
+    flex-shrink: 0;
+    width: 540px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    top: 1500px
+}
+.container2{
+    position: absolute;
+    height: 310px;
+    flex-shrink: 0;
+    width: 540px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    right: 200px;
+    top: 1300px
+}
+.container3{
+    position: absolute;
+    height: 310px;
+    flex-shrink: 0;
+    width: 540px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    right: 300px;
+    top: 1650px
+}

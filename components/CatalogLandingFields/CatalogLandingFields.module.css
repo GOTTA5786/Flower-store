@@ -1,0 +1,30 @@
+
+.li{
+    margin: 4px;
+    display: list-item;
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+    
+}
+.p{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    width: 271px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #43FFD2;
+}
+.ul{
+    list-style-type: circle;
+    margin-left: 60px;
+}
