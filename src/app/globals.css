@@ -9,9 +9,5 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #201e1e;
-}
-.mainContainer{
-  margin-top: 10vh;
-  flex:1;
+  background: #040A0A;
 }
