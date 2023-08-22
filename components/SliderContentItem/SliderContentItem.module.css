@@ -1,0 +1,26 @@
+.title{
+    position: relative;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #FFF;
+    z-index: 5;
+}
+.price{
+    position: relative;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+    z-index: 5;
+}
+.picture{
+    position: relative;
+    z-index: 5;
+}
