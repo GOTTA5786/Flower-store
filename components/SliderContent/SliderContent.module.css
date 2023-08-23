@@ -1,7 +1,8 @@
 .container{
     display: flex;
-    position: absolute;
-    width: 100%;
+    position: relative;
+    width: 1140px;
     overflow: hidden;
-
+    margin: 0px -15px;
+    z-index: 1;
 }

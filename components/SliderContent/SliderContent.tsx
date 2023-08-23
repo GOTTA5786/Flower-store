@@ -1,18 +1,22 @@
-import React from 'react'
+
 import styles from './SliderContent.module.css'
 import { flowers } from '@/HardCode/flowers'
 import SliderContentItem from '../SliderContentItem/SliderContentItem'
-
+import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
+import { setDots } from '@/store/sliderSlice'
 
 export default function SliderContent() {
+  const dotsAmount = Math.floor(flowers.length/3)
+  const dispatch = useAppDispatch()
+
+  dispatch(setDots(dotsAmount))
+
+  
   return (
-    <div className={styles.container}>
-      <SliderContentItem prop={flowers[0]}></SliderContentItem>
-      <SliderContentItem prop={flowers[1]}></SliderContentItem>
-      <SliderContentItem prop={flowers[2]}></SliderContentItem>
-      <SliderContentItem prop={flowers[3]}></SliderContentItem>
-      <SliderContentItem prop={flowers[4]}></SliderContentItem>
-      <SliderContentItem prop={flowers[5]}></SliderContentItem>
+    <div className={ styles.container }>
+      {flowers.map(item => {
+        return <SliderContentItem id = { item.flower_id }prop={ item }></SliderContentItem>
+      })}
     </div>
   )
 }

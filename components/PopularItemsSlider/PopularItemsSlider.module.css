@@ -1,0 +1,23 @@
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    
+}
+.arrow{
+    transition: all ease 200ms;
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    margin: 0px 15px;
+    stroke-width: 3px;
+    stroke: #ffff;
+    color:rgba(0, 0, 0, 0)
+}
+.arrow:hover{
+    stroke-width: 0px;
+    color: rgba(67, 255, 210, 1);
+}

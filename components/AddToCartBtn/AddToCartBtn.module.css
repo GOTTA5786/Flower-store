@@ -1,0 +1,26 @@
+.container{
+    position: relative;
+    display: flex;
+    width: 255px;
+    height: 50px;
+    flex-shrink: 0;
+    border: 0.5px solid #FFF; 
+    justify-content: center;
+    align-items: center;
+    color:#FFF;
+    z-index: 3;
+}
+.container:hover{
+    background-color: #43FFD2;
+    color:#040A09;
+    border: none;
+}
+.buttonText{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: inherit;
+}

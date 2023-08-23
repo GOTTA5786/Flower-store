@@ -1,9 +1,10 @@
+
 import styles from './PopularContainer.module.css'
 import { cormorant, oswaldo } from '@/Fonts/fonts'
 import Image from 'next/image'
 import PopularBg from '@/public/PopularBg.png'
 import PopularItemsSlider from '../PopularItemsSlider/PopularItemsSlider'
-
+import ProviderWrapper from '../ProviderWrapper/ProviderWrapper'
 
 export default function PopularContainer() {
   return (
@@ -14,7 +15,10 @@ export default function PopularContainer() {
         <p className={styles.popularText + " " + cormorant.className}>Популярные</p>
         <p className={styles.popularText2 + " " + cormorant.className}>букеты</p>
         <p className={styles.popularText3 + " " + oswaldo.className}>Самые любимые композиции наших клиентов</p>
-        <PopularItemsSlider></PopularItemsSlider>
+        <ProviderWrapper>
+          <PopularItemsSlider></PopularItemsSlider>
+        </ProviderWrapper>
+        
         
     </div>
   )
