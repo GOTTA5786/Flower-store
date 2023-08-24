@@ -4,6 +4,7 @@ import MainFlover1 from '@/public/Main-flover1.png'
 import { cormorant, oswaldo, arizonia } from '@/Fonts/fonts'
 import CatalogContainer from '@/components/CatalogContainer/CatalogContainer'
 import PopularContainer from '@/components/PopularContainer/PopularContainer'
+import HowToOrderContainer from '@/components/HowToOrderContainer/HowToOrderContainer'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </div>
       <CatalogContainer></CatalogContainer>
       <PopularContainer></PopularContainer>
+      <HowToOrderContainer></HowToOrderContainer>
     </>
   )
 }

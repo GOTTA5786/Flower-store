@@ -25,3 +25,14 @@
     text-transform: uppercase;
 
 }
+.pictureContainer{
+    width: 350;
+    height: 450;
+    overflow: hidden;
+}
+.picture{
+    transition: all ease 100ms;
+}
+.picture:hover{
+    transform: scale(1.3)
+}

@@ -29,6 +29,7 @@
 .popularText3{
     position: relative;
     margin-left: 550px;
+    margin-bottom: 100px;
     color: #FFF;
     font-size: 25px;
     font-style: normal;
@@ -42,7 +43,7 @@
     position: absolute;
     right: 0px;
     z-index: 1;
-    width: 1250px;
+    width: 1104px;
     flex-shrink: 0;
-    height: 948px;
+    height: 748px;
 }

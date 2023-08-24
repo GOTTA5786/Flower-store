@@ -1,0 +1,29 @@
+.letterL{
+    position: relative;
+    z-index: 1;
+    color: #8A8686;
+    font-size: 110px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+.letterF{
+    position: relative;
+    z-index: 2;
+    color: #FFF;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: translateY(-115px) translateX(13px);
+}
+.container{
+    transform: translateY(-30px);
+    margin-bottom: -30px;
+    max-height: 120px;
+    max-width: 65px;
+}

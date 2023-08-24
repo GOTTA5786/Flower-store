@@ -5,6 +5,8 @@ import Image from 'next/image'
 import PopularBg from '@/public/PopularBg.png'
 import PopularItemsSlider from '../PopularItemsSlider/PopularItemsSlider'
 import ProviderWrapper from '../ProviderWrapper/ProviderWrapper'
+import PopularBlueSvg from '../EffectComponents/PopularBlue/PopularBlueSvg'
+import PopularPurpleSvg from '../EffectComponents/PopularPurple/PopularPurpleSvg'
 
 export default function PopularContainer() {
   return (
@@ -18,6 +20,8 @@ export default function PopularContainer() {
         <ProviderWrapper>
           <PopularItemsSlider></PopularItemsSlider>
         </ProviderWrapper>
+        <PopularBlueSvg></PopularBlueSvg>
+        <PopularPurpleSvg></PopularPurpleSvg>
         
         
     </div>

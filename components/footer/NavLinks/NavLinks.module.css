@@ -1,0 +1,11 @@
+.container > p{
+    width: 210px;
+    margin-bottom: 15px;
+    color: #43FFD2;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+}

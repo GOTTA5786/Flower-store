@@ -1,0 +1,12 @@
+.position{
+    position: relative;
+    z-index: 0;
+    height: 396.429px;
+    transform: rotate(-60deg) translateY(-300px) translateX(200px);
+    flex-shrink: 0;
+    filter: blur(100px);
+    width: 571.277px;
+    margin-left: 200px;
+    margin-bottom: -500px;
+
+}

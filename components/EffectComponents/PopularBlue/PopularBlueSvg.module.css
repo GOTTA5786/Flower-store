@@ -1,0 +1,9 @@
+.position{
+    filter: blur(125px);
+    fill: rgba(67, 255, 210, 0.47);
+    width: 813.998px;
+    height: 661.887px;
+    flex-shrink: 0;
+    transform: translateY(-500px);
+    margin-bottom: -500px;
+}

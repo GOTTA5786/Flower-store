@@ -1,0 +1,26 @@
+.list > li{
+    margin-top: 4px;
+    max-width: 160px;
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    list-style-type: none;
+}
+.name{
+    margin-bottom: 10px;
+    color: #43FFD2;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+}
+.name:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

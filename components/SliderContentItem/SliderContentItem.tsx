@@ -9,9 +9,9 @@ interface Props{
     id:number,
     prop:{flower_id:number;
         title:string;
-        price:string;
+        price:number;
         sale:boolean;
-        saleprice:string;
+        saleprice:number;
         description:string;
         pathtoimg:string;}
 }
@@ -22,9 +22,15 @@ export default function SliderContentItem({ prop }:Props) {
 
   return (
     <div className={styles.container} style = {{ transform: `translateX(${position}px)` }}>
-        <Image className={styles.picture} alt = 'default' src = {`/Items_images/${prop.pathtoimg}.png`} width={350} height={450}></Image>
+        <div className={styles.pictureContainer}>
+          <Image className={styles.picture}
+            alt = 'default'
+            src = {`/Items_images/${prop.pathtoimg}.png`}
+            width={350}
+            height={450}></Image>
+        </div>
         <p className={styles.title + " " + oswaldo.className}>{prop.title}</p>
-        <p className={styles.price + " " + oswaldo.className}>{prop.price}</p>
+        <p className={styles.price + " " + oswaldo.className}>{prop.price} ₽</p>
         <AddToCartBtn></AddToCartBtn>
     </div>
   )
