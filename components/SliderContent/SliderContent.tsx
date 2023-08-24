@@ -15,7 +15,7 @@ export default function SliderContent() {
   return (
     <div className={ styles.container }>
       {flowers.map(item => {
-        return <SliderContentItem id = { item.flower_id }prop={ item }></SliderContentItem>
+        return <SliderContentItem key = { item.flower_id }prop={ item }></SliderContentItem>
       })}
     </div>
   )

@@ -15,7 +15,7 @@ export default function CatalogLandingFields({prop}:Props) {
     <>
       <p className={styles.p + " " + oswaldo.className}> {prop.main} </p>
       <ul className={styles.ul}>
-        {prop.children.map((item:string,i:number):any => { return <li id={`${prop.id}`} className={styles.li + " " + oswaldo.className}>{item}</li> })}
+        {prop.children.map((item:string,i:number):any => { return <li key={prop.id} className={styles.li + " " + oswaldo.className}>{item}</li> })}
       </ul>
     </>
   )

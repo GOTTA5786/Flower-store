@@ -8,7 +8,7 @@ export default function StepsHelper() {
     <div className={styles.stepsContainer}>
         {steps.map(item => {
             return(
-            <div id={`${item.id}`}>
+            <div key={item.id}>
                 <p className={styles.step + ' ' + oswaldo.className}>{item.id} ШАГ</p>
                 <p className={styles.description + ' ' + oswaldo.className}>{item.description}</p>
             </div>

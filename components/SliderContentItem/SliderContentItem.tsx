@@ -6,7 +6,7 @@ import AddToCartBtn from '../AddToCartBtn/AddToCartBtn'
 import { useAppSelector } from '@/hooks/hooks'
 
 interface Props{
-    id:number,
+    key:number,
     prop:{flower_id:number;
         title:string;
         price:number;
