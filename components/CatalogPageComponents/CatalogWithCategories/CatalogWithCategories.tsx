@@ -12,7 +12,7 @@ export default function CatalogWithCategories() {
         <p className={styles.text3 + ' ' + oswaldo.className}>В нашем магазине самый большой выбор букетов для любых событий:</p>
         <div className={styles.categoryContainer}>
           {categories.map(item => {
-            return <CategoryBtn categoryName={item.category}/>
+            return <CategoryBtn key={item.id} categoryName={item.category}/>
           })}
         </div>
     </div>

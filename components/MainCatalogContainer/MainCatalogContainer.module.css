@@ -32,6 +32,8 @@
     line-height: normal;
     letter-spacing: 0.4px;
     font-size: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .purpleEffect{
@@ -60,7 +62,8 @@
   }
   .container1{
     margin-left: 200px;
-    position: absolute;
+    margin-top: 60px;
+    position: relative;
     height: 310px;
     flex-shrink: 0;
     width: 540px;
@@ -68,7 +71,6 @@
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
     backdrop-filter: blur(10px);
-    top: 1500px
 }
 .container2{
     position: absolute;
