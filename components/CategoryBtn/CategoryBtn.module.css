@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    border: 0.5px solid #FFF;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.category{
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+}

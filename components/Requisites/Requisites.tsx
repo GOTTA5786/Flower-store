@@ -1,5 +1,5 @@
 import styles from './Requisites.module.css'
-import { cormorant, oswaldo, arizonia } from '@/Fonts/fonts'
+import { cormorant, oswaldo, arizonia } from '@/fonts/fonts'
 
 export default function Requisites() {
   return (

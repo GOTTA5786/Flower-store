@@ -1,5 +1,5 @@
 import styles from "./FooterBouquet.module.css";
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 
 export default function FooterBouquet() {
   return (

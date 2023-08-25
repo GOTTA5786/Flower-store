@@ -1,6 +1,6 @@
 
 import styles from './PopularContainer.module.css'
-import { cormorant, oswaldo } from '@/Fonts/fonts'
+import { cormorant, oswaldo } from '@/fonts/fonts'
 import Image from 'next/image'
 import PopularBg from '@/public/PopularBg.png'
 import PopularItemsSlider from '../PopularItemsSlider/PopularItemsSlider'

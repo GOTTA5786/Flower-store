@@ -1,5 +1,5 @@
 import styles from './Logo.module.css'
-import { cormorant } from '@/Fonts/fonts'
+import { cormorant } from '@/fonts/fonts'
 
 export default function Logo() {
   return (

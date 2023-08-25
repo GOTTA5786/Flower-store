@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AddToCartBtn.module.css'
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 export default function AddToCartBtn() {
   return (
     <div className={styles.container}>

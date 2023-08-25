@@ -1,5 +1,5 @@
 import styles from "./FooterCatalog.module.css";
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 
 export default function FooterCatalog() {
   return (

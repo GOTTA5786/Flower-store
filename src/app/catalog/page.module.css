@@ -1,0 +1,28 @@
+.container{
+    height: 2000px;
+    overflow: hidden;
+    width: 100%;
+}
+.content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+.leftFlower{
+    position: relative;
+    transform: translateX(-315px) translateY(-3vw);
+    float: left;
+    object-fit: contain;
+    flex-shrink: 0;
+    z-index: 1;
+}
+.rightFlower{
+    position: relative;
+    transform: translateX(335px) translateY(-36vw);
+    float: right;
+    object-fit: contain;
+    flex-shrink: 0;
+    z-index: 1;
+}

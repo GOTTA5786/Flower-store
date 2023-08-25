@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    top: 10px;
+    left: 10vw;
+    z-index: 3;
+
+}
+.link{
+    text-decoration: none;
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+}
+.link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

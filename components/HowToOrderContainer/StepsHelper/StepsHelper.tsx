@@ -1,6 +1,6 @@
 import { steps } from "./StepsInfo"
 import styles from './StepsHelper.module.css'
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 
 
 export default function StepsHelper() {

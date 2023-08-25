@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import styles from './SliderContentItem.module.css'
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 import AddToCartBtn from '../AddToCartBtn/AddToCartBtn'
 import { useAppSelector } from '@/hooks/hooks'
 

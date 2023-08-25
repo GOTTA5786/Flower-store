@@ -2,7 +2,7 @@ import styles from './HowToOrderContainer.module.css'
 import HowToOrderFlower from '@/public/HowToOrderFlower.png'
 import Image from 'next/image'
 import StepsHelper from './StepsHelper/StepsHelper'
-import { cormorant, arizonia } from '@/Fonts/fonts'
+import { cormorant, arizonia } from '@/fonts/fonts'
 import PopularBlueSvg from '../EffectComponents/PopularBlue/PopularBlueSvg'
 
 export default function HowToOrderContainer() {

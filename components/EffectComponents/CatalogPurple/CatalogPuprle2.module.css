@@ -1,0 +1,12 @@
+.container{
+    position: relative;
+    right: 13vw;
+    top: 37vw;
+    border-radius: 504.417px;
+    background: #7D2253;
+    filter: blur(130px);
+    width: 504.417px;
+    height: 360.441px;
+    flex-shrink: 0;
+    z-index: 0;
+}

@@ -22,6 +22,8 @@
     transform: translateY(-115px) translateX(13px);
 }
 .container{
+    position: relative;
+    z-index: 3;
     transform: translateY(-30px);
     margin-bottom: -30px;
     max-height: 120px;

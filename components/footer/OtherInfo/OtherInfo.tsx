@@ -1,6 +1,6 @@
 import { FaSquareWhatsapp,FaSquarePhone,FaInstagram } from "react-icons/fa6";
 import styles from "./OtherInfo.module.css";
-import { oswaldo } from '@/Fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 
 export default function OtherInfo() {
   return (

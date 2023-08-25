@@ -1,0 +1,15 @@
+.container{
+    position: relative;
+    right: 13vw;
+    top: 20vw;
+    border-radius: 504.417px;
+    transform: rotate(120deg);
+    background: #43FFD2;
+    filter: blur(140px);
+    height: 173.928px;
+    transform: rotate(-71.859deg);
+    flex-shrink: 0;
+    width: 747.738px;
+    flex-shrink: 0;
+    z-index: 0;
+}

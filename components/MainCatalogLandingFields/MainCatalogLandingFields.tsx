@@ -1,5 +1,5 @@
-import styles from '@/components/CatalogLandingFields/CatalogLandingFields.module.css'
-import { cormorant, oswaldo } from '@/Fonts/fonts'
+import styles from './MainCatalogLandingFields.module.css'
+import { cormorant, oswaldo } from '@/fonts/fonts'
 
 interface Props{
   prop:{
@@ -10,7 +10,7 @@ interface Props{
 }
 
 
-export default function CatalogLandingFields({prop}:Props) {
+export default function MainCatalogLandingFields({prop}:Props) {
   return (
     <>
       <p className={styles.p + " " + oswaldo.className}> {prop.main} </p>
