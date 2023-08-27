@@ -1,6 +1,6 @@
 
 import styles from './SliderContent.module.css'
-import { flowers } from '@/hardCode/flowers'
+import { flowers } from '@/hardCode/flowers.js'
 import SliderContentItem from '../SliderContentItem/SliderContentItem'
 import { useAppDispatch } from '@/hooks/hooks'
 import { setDots } from '@/store/sliderSlice'

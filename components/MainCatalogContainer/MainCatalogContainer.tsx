@@ -1,7 +1,7 @@
 import styles from './MainCatalogContainer.module.css'
 import { cormorant,oswaldo } from '@/fonts/fonts'
 import MainCatalogLandingFields from '../MainCatalogLandingFields/MainCatalogLandingFields'
-import  { firstCatalog,secondCatalog,thirdCatalog } from '@/hardCode/catalogs'
+import  { firstCatalog,secondCatalog,thirdCatalog } from '@/hardCode/catalogs.js'
 
 
 
