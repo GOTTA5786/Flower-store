@@ -1,15 +1,38 @@
-.container{
+.containerHead{
     display: flex;
-    position: absolute;
-    align-items: center;
+    position: relative;
     justify-content: space-between;
-    width: 60%;
-    top: 10px;
-    left: 10vw;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 70%;
     z-index: 3;
 
 }
+.container{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    z-index: 3;
+
+}
+.containerInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    width: 30%;
+    height: 700px;
+    z-index: 3;
+
+}
+.containerText{
+    margin-top: 30px;
+}
 .link{
+    margin-top: 30px;
     text-decoration: none;
     color: #FFF;
     font-size: 18px;
@@ -22,4 +45,110 @@
 .link:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+.logoLink{
+    text-decoration: none;
+}
+.logoLink:hover{
+    cursor: pointer;
+}
+.icon{
+    color:#43FFD2;
+    font-size: 40px;
+}
+.blueText{
+    color: #43FFD2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+.whiteText{
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.blurContainer1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: auto;
+    right: 0;
+    width: 80px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+.blurContainer2{
+    margin-top: 15px;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 220px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+.blurContainer3{
+    margin-top: 15px;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+.iconPhone{
+    stroke: #43FFD2;
+    color:#43FFD2;
+    font-size: 20px;
+}
+.phoneNumber{
+    margin-top: 80px;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+.workingTime{
+    margin-left: auto;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 130px;
+}
+.operator{
+    margin-left: auto;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 270px;
 }

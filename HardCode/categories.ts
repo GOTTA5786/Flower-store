@@ -44,4 +44,16 @@ export const categories=[
         id: 11,
         category: 'Подарки'
     },
+    {
+        id: 12,
+        category: 'Букеты из сухоцветов'
+    },
+    {
+        id: 13,
+        category: 'Шары'
+    },
+    {
+        id: 14,
+        category: 'Популярное'
+    },
 ]

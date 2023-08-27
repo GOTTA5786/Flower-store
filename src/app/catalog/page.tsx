@@ -6,6 +6,8 @@ import CatalogPuprle from '@/components/EffectComponents/CatalogPurple/CatalogPu
 import CatalogBlue from '@/components/EffectComponents/CatalogBlue/CatalogBlue'
 import CatalogWithCategories from '@/components/CatalogPageComponents/CatalogWithCategories/CatalogWithCategories'
 import DefaultHeader from '@/components/DefaultHeader/DefaultHeader'
+import CatalogFilter from '@/components/CatalogPageComponents/CatalogFilter/CatalogFilter'
+import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper'
 
 
 export default function Catalog() {
@@ -20,8 +22,8 @@ export default function Catalog() {
       <Image
           className={styles.rightFlower}
           src = {rightFlower}
-          width = {1073}
-          height ={717}
+          width = {1573}
+          height ={1317}
           alt = 'default'/>
       <CatalogPuprle position={1}/>
       <CatalogPuprle position={2}/>
@@ -30,10 +32,16 @@ export default function Catalog() {
       <CatalogBlue position={1}/>
       {/* <CatalogBlue position={2}/>
       <CatalogBlue position={3}/> */}
+      <DefaultHeader/>
       <div className={styles.content}>
-        <DefaultHeader/>
         <CatalogWithCategories/>
         <p style={{color: "red"}}>AAAA</p>
+        <div>
+          <ProviderWrapper><CatalogFilter/></ProviderWrapper>
+          <div>
+
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,73 @@
+.container{
+    margin-top: 15px;
+    width: inherit;
+}
+.slider{
+    width: inherit;
+}
+.slider > input[type=range] {
+    position: absolute;
+    height: 1px;
+    -webkit-appearance: none;
+    width: 200px;
+    
+  }
+.slider > input[type=range]::-webkit-slider-runnable-track {
+    position: absolute;
+    height: 1px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+.slider > input[type=range]::-webkit-slider-thumb {
+    position: relative;
+    z-index: 2;
+    background: #43FFD2;
+    border-radius: 100%;
+    cursor: pointer;
+    width:15px;
+    height: 15px;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+.slider > input[type=range]::-moz-range-track {
+    position: absolute;
+    height: 1px;
+    -webkit-appearance: none;
+    width: 80%;
+}
+.slider > input[type=range]::-moz-range-thumb {
+    background: #43FFD2;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.priceSlider{
+    width: inherit;
+    color: #FFF;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+}
+.priceSlider > input[type="number"] {
+    margin-left: 3px;
+    margin-right: 3px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: inherit;
+    width: 70px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background-color: inherit;
+}
+.priceSliderContainer{
+    width: inherit;
+    margin-top: 30px;
+}
+.priceSlider > input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}

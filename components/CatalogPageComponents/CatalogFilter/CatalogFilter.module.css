@@ -1,0 +1,70 @@
+.container{
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(10px);
+    width: 255px;
+    height: 818px;
+    flex-shrink: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.main{
+    color: #43FFD2;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.ul > li {
+    margin-top: 5px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    list-style: none;
+}
+.realCheckbox {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.customCheckbox {
+    overflow: hidden;
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #43FFD2;
+	border-radius: 4px;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+
+.customCheckbox::before {
+	content: '';
+	display: inline-block;
+	width: inherit;
+	height: inherit;
+    border: inherit;
+    background-color: #43FFD2;
+	background-image: url('/checked.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.2s ease-in;
+}
+.realCheckbox:checked + .customCheckbox::before{
+	transform: translate(-50%, -50%) scale(1);
+}
+

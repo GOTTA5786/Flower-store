@@ -6,9 +6,9 @@
 .content {
     position: absolute;
     top: 0;
-    width: 100%;
-    overflow: hidden;
     height: 100%;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 .leftFlower{
     position: relative;
@@ -20,7 +20,7 @@
 }
 .rightFlower{
     position: relative;
-    transform: translateX(335px) translateY(-36vw);
+    transform: translateX(440px) translateY(-46vw);
     float: right;
     object-fit: contain;
     flex-shrink: 0;

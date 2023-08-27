@@ -7,7 +7,6 @@
     background: rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(10px);
     padding-bottom: 20px;
-    margin-left: 14vw;
     margin-top: 12vw;
 }
 .categoryContainer{
@@ -17,6 +16,8 @@
     flex-wrap: wrap;
 }
 .text1{
+    padding-top: 5px;
+    margin-left: 20px;
     color: #FFF;
     font-size: 100px;
     font-style: normal;

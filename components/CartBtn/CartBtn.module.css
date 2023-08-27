@@ -1,0 +1,35 @@
+.btn{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    color: #ffff;
+    z-index: 3;
+}
+.container{
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+.counter{
+    position: absolute;
+    margin-left: 30px;
+    display: flex;
+    width: 24px;
+    flex-shrink: 0;
+    height: 24px;
+    background-color: #43FFD2;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #142B2B;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    z-index: 4;
+}
+.container:hover{
+    cursor: pointer;
+}
