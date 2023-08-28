@@ -1,14 +1,21 @@
 .container{
-    height: 2000px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     width: 100%;
+    
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
 }
 .content {
-    position: absolute;
-    top: 0;
-    height: 100%;
+    top: 200px;
+    position: relative;
     margin-left: 10vw;
-    margin-right: 10vw;
+    width: 80vw;
+    
 }
 .leftFlower{
     position: relative;
@@ -25,4 +32,11 @@
     object-fit: contain;
     flex-shrink: 0;
     z-index: 1;
+}
+.contentDisplay{
+    display: flex;
+    position: relative;
+    margin-bottom: 200px;
+    margin-top: 70px;
+    z-index: 3;
 }

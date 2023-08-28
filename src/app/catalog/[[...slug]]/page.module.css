@@ -1,0 +1,9 @@
+.container{
+    position: relative;
+    justify-content: right;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 3;
+    border: solid red 2px;
+    padding-bottom: 20px;
+}

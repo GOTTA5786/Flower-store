@@ -10,7 +10,7 @@ export default function OtherInfo() {
             <p className={styles.description + " " + oswaldo.className}>Доставка 24/7 по договоренности с оператором</p>
         </div>
         <div>
-            <p className={styles.name + " " + oswaldo.className}>ул. Тимирязева 69</p>
+            <p className={styles.name + " " + oswaldo.className}>ул. Тимирязева 67</p>
             <p className={styles.description + " " + oswaldo.className}>10:00 до 21:00 без выходных</p>
         </div>
         <div>

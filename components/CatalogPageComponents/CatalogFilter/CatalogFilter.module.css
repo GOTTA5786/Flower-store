@@ -3,7 +3,7 @@
     background: rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(10px);
     width: 255px;
-    height: 818px;
+    height: 650px;
     flex-shrink: 0;
     padding-left: 20px;
     padding-top: 20px;
@@ -28,7 +28,7 @@
     text-transform: uppercase;
     list-style: none;
 }
-.realCheckbox {
+.ul input[type=checkbox]{
 	width: 0;
 	height: 0;
 	opacity: 0;
@@ -36,7 +36,7 @@
 	z-index: -1;
 }
 
-.customCheckbox {
+.ul span {
     overflow: hidden;
 	position: relative;
 	display: inline-block;
@@ -64,7 +64,7 @@
 	transform: translate(-50%, -50%) scale(0);
 	transition: 0.2s ease-in;
 }
-.realCheckbox:checked + .customCheckbox::before{
+.ul input[type=checkbox]:checked + .customCheckbox::before{
 	transform: translate(-50%, -50%) scale(1);
 }
 

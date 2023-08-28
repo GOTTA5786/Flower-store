@@ -23,9 +23,9 @@ export default function CatalogPriceSlider() {
         <span className={styles.priceSlider + ' ' + oswaldo.className}>
             цена: 
             <input type = 'number' placeholder={`${minPrice}`} value={minUserPrice} onChange = {(e) => {dispatch(setMinUserPrice(e.target.valueAsNumber))}}/>
-            $ - 
+            ₽ - 
             <input type = 'number' placeholder={`${maxPrice}`} value={maxUserPrice} onChange = {(e) => dispatch(setMaxUserPrice(e.target.valueAsNumber))}/>
-            $
+            ₽
         </span>
       </div>
     </>
