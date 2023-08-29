@@ -3,7 +3,7 @@
     background: rgba(0, 0, 0, 0.30);
     backdrop-filter: blur(10px);
     width: 255px;
-    height: 650px;
+    height: 710px;
     flex-shrink: 0;
     padding-left: 20px;
     padding-top: 20px;
@@ -67,4 +67,8 @@
 .ul input[type=checkbox]:checked + .customCheckbox::before{
 	transform: translate(-50%, -50%) scale(1);
 }
-
+.removeBtnContainer{
+    display: flex;
+    justify-content: center;
+    margin-left: -20px;
+}

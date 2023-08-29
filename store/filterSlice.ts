@@ -9,7 +9,7 @@ interface IFilter {
 
 
 const initialState:IFilter = {
-    pathname:'/catalog',
+    pathname:'',
     brightness:{},
     color: {},
     format: {},
@@ -21,31 +21,55 @@ export const filterSlice = createSlice({
   reducers: {
     addBrightness: (state, action:PayloadAction<string>) => {
         state.brightness[action.payload]=(action.payload)
-    },
-    removeBrightness: (state, action:PayloadAction<string>) => {
-        delete state.brightness[action.payload]
-    },
-    addColor: (state, action:PayloadAction<string>) => {
-        state.color[action.payload]=(action.payload)
-    },
-    removeColor: (state, action:PayloadAction<string>) => {
-        delete state.color[action.payload]
-    },
-    addFormat: (state, action:PayloadAction<string>) => {
-        state.format[action.payload]=(action.payload)
-    },
-    removeFormat: (state, action:PayloadAction<string>) => {
-        delete state.format[action.payload]
-    },
-    setPathname: (state) => {        
         const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
         const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
         const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
         state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
     },
+    removeBrightness: (state, action:PayloadAction<string>) => {
+        delete state.brightness[action.payload]
+        const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
+        const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
+        const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
+        state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
+    },
+    addColor: (state, action:PayloadAction<string>) => {
+        state.color[action.payload]=(action.payload)
+        const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
+        const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
+        const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
+        state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
+    },
+    removeColor: (state, action:PayloadAction<string>) => {
+        delete state.color[action.payload]
+        const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
+        const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
+        const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
+        state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
+    },
+    addFormat: (state, action:PayloadAction<string>) => {
+        state.format[action.payload]=(action.payload)
+        const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
+        const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
+        const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
+        state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
+    },
+    removeFormat: (state, action:PayloadAction<string>) => {
+        delete state.format[action.payload]
+        const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
+        const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
+        const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
+        state.pathname = `/catalog${brightnessString}${colorString}${formatString}`
+    },
+    removeFilter: (state) => {
+        state.brightness={}
+        state.color={}
+        state.format={}
+        state.pathname = '/catalog'
+    }
   },
 })
 
-export const { addBrightness, addColor,addFormat,removeBrightness, removeColor,removeFormat,setPathname } = filterSlice.actions
+export const { addBrightness, addColor,addFormat,removeBrightness, removeColor,removeFormat,removeFilter } = filterSlice.actions
 
 export default filterSlice.reducer

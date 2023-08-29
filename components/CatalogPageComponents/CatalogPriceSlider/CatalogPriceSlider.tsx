@@ -1,17 +1,20 @@
 'use client'
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
 import styles from './CatalogPriceSlider.module.css'
-import { setMaxUserPrice,setMinUserPrice } from '@/store/catalogPriceSliderSlice'
+import { setMaxUserPrice,setMinUserPrice,setUserInputMaxPrice,setUserInputMinPrice } from '@/store/catalogPriceSliderSlice'
 import { oswaldo } from '@/fonts/fonts'
 
 export default function CatalogPriceSlider() {
    const minUserPrice = useAppSelector(state => state.priceSlider.leftDotState)
    const maxUserPrice = useAppSelector(state => state.priceSlider.rightDotState)
+
    const minPrice = useAppSelector(state => state.priceSlider.minPrice)
    const maxPrice = useAppSelector(state => state.priceSlider.maxPrice)
+
+   const inputMinValue = useAppSelector(state => state.priceSlider.inputMinValue)
+   const inputMaxValue = useAppSelector(state => state.priceSlider.inputMaxValue)
    
    const dispatch = useAppDispatch()
-
 
   return (
     <>
@@ -22,9 +25,9 @@ export default function CatalogPriceSlider() {
       <div className={styles.priceSliderContainer}>
         <span className={styles.priceSlider + ' ' + oswaldo.className}>
             цена: 
-            <input type = 'number' placeholder={`${minPrice}`} value={minUserPrice} onChange = {(e) => {dispatch(setMinUserPrice(e.target.valueAsNumber))}}/>
+            <input type = 'number' placeholder={`${minPrice}`} value={inputMinValue} onChange={(e) => dispatch(setUserInputMinPrice(e.target.valueAsNumber))}  onBlur = {(e) => {dispatch(setMinUserPrice(e.target.valueAsNumber))}}/>
             ₽ - 
-            <input type = 'number' placeholder={`${maxPrice}`} value={maxUserPrice} onChange = {(e) => dispatch(setMaxUserPrice(e.target.valueAsNumber))}/>
+            <input type = 'number' placeholder={`${maxPrice}`} value={inputMaxValue} onChange = {(e) => dispatch(setUserInputMaxPrice(e.target.valueAsNumber))} onBlur = {(e) => {dispatch(setMaxUserPrice(e.target.valueAsNumber))}}/>
             ₽
         </span>
       </div>

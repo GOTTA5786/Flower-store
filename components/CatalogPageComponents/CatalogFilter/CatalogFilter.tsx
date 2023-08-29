@@ -2,17 +2,12 @@
 import { oswaldo } from '@/fonts/fonts'
 import CatalogPriceSlider from '../CatalogPriceSlider/CatalogPriceSlider'
 import styles from './CatalogFilter.module.css'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
-import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,setPathname } from '@/store/filterSlice'
-import { ChangeEvent, useEffect } from 'react'
+import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,removeFilter } from '@/store/filterSlice'
+import { ChangeEvent, useEffect, useLayoutEffect } from 'react'
+import RemoveFilterBtn from '@/components/RemoveFilterBtn/RemoveFilterBtn'
 
-interface IUrlParams {
-    brightness:string,
-    color:string,
-    format:string,
-    price:string,
-}
 const COLORS: Record<string,string> = {
     white: 'белый',
     yellow: 'желтый',
@@ -35,19 +30,53 @@ const FORMAT: Record<string,string> ={
     crate: 'в ящике',
 
 }
+
+
+
 export default function CatalogFilter() {
-    
-    const router = useRouter()
     const dispatch = useAppDispatch()
+    const currentPath = usePathname()
+
+    const router = useRouter()
     const pathname = useAppSelector(state => state.filter.pathname)
     const brightness = useAppSelector(state => state.filter.brightness)
     const color = useAppSelector(state => state.filter.color)
     const format = useAppSelector(state => state.filter.format)
     
-    useEffect(() => {
-        router.push(pathname)
-    }, [brightness,color,format])
     
+    function setInitialPath(string:string){
+        if (string.includes('brightness')){
+            console.log(string);
+            string.replace('brightness-','').split('-').map(item => {dispatch(addBrightness(item))})
+        }
+        else if (string.includes('color')){
+            string.replace('color-','').split('-').map(item => {dispatch(addColor(item))})
+        }
+        else if (string.includes('format')){
+            string.replace('format-','').split('-').map(item => {dispatch(addFormat(item))})
+        }
+    }
+
+
+    useLayoutEffect(() => {
+        currentPath.replace('/catalog','').split('/').map(item => {setInitialPath(item) })
+    }, [])
+    
+    useEffect(() => {     
+        if (pathname){
+                router.push(pathname)
+            }
+        
+    }, [pathname])
+    
+    useEffect(() => {
+        if (currentPath === '/catalog'){
+            dispatch(removeFilter())
+        }
+        
+    }, [currentPath])
+    
+
     function handleBrightness(e:ChangeEvent<HTMLInputElement>):void{
         if (e.target.checked){
             dispatch(addBrightness(e.target.name))
@@ -55,7 +84,6 @@ export default function CatalogFilter() {
         else{
             dispatch(removeBrightness(e.target.name))
         }
-        dispatch(setPathname())
     }
     function handleColor(e:ChangeEvent<HTMLInputElement>):void{
         if (e.target.checked){
@@ -64,7 +92,6 @@ export default function CatalogFilter() {
         else{
             dispatch(removeColor(e.target.name))
         }
-        dispatch(setPathname())
         
     }
     function handleFormat(e:ChangeEvent<HTMLInputElement>):void{
@@ -74,7 +101,6 @@ export default function CatalogFilter() {
         else{
             dispatch(removeFormat(e.target.name))
         }
-        dispatch(setPathname())
     }
     
     return (
@@ -101,6 +127,7 @@ export default function CatalogFilter() {
             <p className={styles.main + ' ' + oswaldo.className}>Стоимость</p>
             <CatalogPriceSlider/>
         </div>
+        <div className={styles.removeBtnContainer}><RemoveFilterBtn/></div>
     </div>
     )
 }
