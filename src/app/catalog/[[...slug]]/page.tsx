@@ -6,10 +6,13 @@ import FlowerItem from '@/components/CatalogPageComponents/FlowerItem/FlowerItem
 interface IProp{
   params:{ slug: string }
   props:object
+  searchParams: {minPrice:number,maxPrice:number}
 }
 
-export default function Catalog( {params,props} :IProp ) {
-  console.log(params.slug,'slug');
+export default function Catalog( {params,props,searchParams} :IProp ) {
+  console.log(params.slug);
+  
+  console.log(searchParams.minPrice,'searchParams');
   
 
   return (

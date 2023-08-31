@@ -13,11 +13,11 @@ interface SliderState {
 
 const initialState: SliderState = {
     leftDotState:0,
-    rightDotState:120,
+    rightDotState:1000,
     inputMinValue:0,
-    inputMaxValue:120,
+    inputMaxValue:1000,
     minPrice:0,
-    maxPrice:120,
+    maxPrice:1000,
 }
 
 export const catalogPriceSlider = createSlice({

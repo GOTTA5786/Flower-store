@@ -1,20 +1,20 @@
 'use client'
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
 import styles from './CatalogPriceSlider.module.css'
-import { setMaxUserPrice,setMinUserPrice,setUserInputMaxPrice,setUserInputMinPrice } from '@/store/catalogPriceSliderSlice'
+import { setMaxUserPrice,setMinUserPrice,setUserInputMaxPrice,setUserInputMinPrice } from '@/store/filterSlice'
 import { oswaldo } from '@/fonts/fonts'
-
 export default function CatalogPriceSlider() {
-   const minUserPrice = useAppSelector(state => state.priceSlider.leftDotState)
-   const maxUserPrice = useAppSelector(state => state.priceSlider.rightDotState)
+   const minUserPrice = useAppSelector(state => state.filter.leftDotState)
+   const maxUserPrice = useAppSelector(state => state.filter.rightDotState)
 
-   const minPrice = useAppSelector(state => state.priceSlider.minPrice)
-   const maxPrice = useAppSelector(state => state.priceSlider.maxPrice)
+   const minPrice = useAppSelector(state => state.filter.minPrice)
+   const maxPrice = useAppSelector(state => state.filter.maxPrice)
 
-   const inputMinValue = useAppSelector(state => state.priceSlider.inputMinValue)
-   const inputMaxValue = useAppSelector(state => state.priceSlider.inputMaxValue)
+   const inputMinValue = useAppSelector(state => state.filter.inputMinValue)
+   const inputMaxValue = useAppSelector(state => state.filter.inputMaxValue)
    
    const dispatch = useAppDispatch()
+   
 
   return (
     <>

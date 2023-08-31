@@ -1,5 +1,5 @@
 import styles from './MainCatalogLandingFields.module.css'
-import { cormorant, oswaldo } from '@/fonts/fonts'
+import { oswaldo } from '@/fonts/fonts'
 
 interface Props{
   prop:{
