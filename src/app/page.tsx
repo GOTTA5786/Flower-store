@@ -15,13 +15,15 @@ export default function Home() {
         <h1 className={styles.storeName1 + " " + cormorant.className}>lover</h1>
         <h1 className={styles.storeName2 + " " + cormorant.className}>flower</h1>
         <p className={styles.slogan + " " + oswaldo.className}>Создаём для тех, кто ценит свежесть и изящество цветка</p>
+        <div className={styles.bgWithShadow}>
         <Image src = {MainFlower1}
           alt = 'default'
           className={styles.MainFlover1}
           ></Image>
+          <div className={styles.containerWithShadow}></div>
+        </div>
         <div className={styles.purpleEffect}></div>
         <div className={styles.blueEffect}></div> 
-        <div className={styles.containerWithShadow}></div>
         <p className={styles.bgTextLF + " " + arizonia.className}>lover flower</p>
       </div>
       <MainCatalogContainer></MainCatalogContainer>
