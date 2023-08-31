@@ -67,7 +67,7 @@ export default function CatalogFilter() {
 
     useLayoutEffect(() => {
         currentPath.replace('/catalog','').split('/').map(item => {setInitialPath(item) })
-    }, [])
+    })
     
     useEffect(() => {     
         if (pathname){

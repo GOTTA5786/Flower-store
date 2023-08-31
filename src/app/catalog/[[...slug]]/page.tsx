@@ -4,15 +4,12 @@ import { flowers } from '@/hardCode/flowers'
 import FlowerItem from '@/components/CatalogPageComponents/FlowerItem/FlowerItem'
 
 interface IProp{
-  params:{ slug: string }
-  props:object
-  searchParams: {minPrice:number,maxPrice:number}
+  params?:{ slug?: string }
+  searchParams?: {minPrice?:string,maxPrice?:string}
 }
 
-export default function Catalog( {params,props,searchParams} :IProp ) {
-  console.log(params.slug);
+export default function Catalog( {params,searchParams} :IProp ) {
   
-  console.log(searchParams.minPrice,'searchParams');
   
 
   return (
