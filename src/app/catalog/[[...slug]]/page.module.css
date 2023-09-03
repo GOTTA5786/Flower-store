@@ -1,6 +1,7 @@
 .container{
     position: relative;
-    justify-content: right;
+    justify-content: left;
+    width: 70vw;
     display: flex;
     flex-wrap: wrap;
     z-index: 3;

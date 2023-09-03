@@ -47,7 +47,6 @@ export default function CatalogFilter() {
     
     function setInitialPath(string:string){
         if (string.includes('brightness')){
-            console.log(string);
             string.replace('brightness-','').split('-').map(item => {dispatch(addBrightness(item))})
         }
         else if (string.includes('color')){

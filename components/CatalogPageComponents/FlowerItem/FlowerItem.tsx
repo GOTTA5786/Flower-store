@@ -3,17 +3,21 @@ import { oswaldo } from '@/fonts/fonts'
 import Image from 'next/image'
 import styles from './FlowerItem.module.css'
 
-interface IFlower{
-    key:number,
-    prop:{flower_id:number;
-        title:string;
-        price:number;
-        sale:boolean;
-        saleprice:number;
-        description:string;
-        pathtoimg:string;}
+export interface IFlower{
+  flower_id:number;
+  title:string;
+  price:number;
+  sale:boolean;
+  saleprice:number;
+  description:string;
+  pathtoimg:string;
+  color:string;
+  brighness:string;
+  format:string;
+  category:string
+      
 }
-export default function FlowerItem({ prop }:IFlower) {
+export default function FlowerItem( prop:IFlower) {
   return (
     <div className={styles.cardContainer}>
           {prop.sale && <span className={styles.onSale + ' ' + oswaldo.className}>Sale</span>}
