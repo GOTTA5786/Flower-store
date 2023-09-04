@@ -4,7 +4,7 @@ import CatalogPriceSlider from '../CatalogPriceSlider/CatalogPriceSlider'
 import styles from './CatalogFilter.module.css'
 import { useRouter,usePathname,useSearchParams } from 'next/navigation'
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
-import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,removeFilter,setMinUserPrice,setMaxUserPrice, setPage } from '@/store/filterSlice'
+import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,removeFilter,setMinUserPrice,setMaxUserPrice, setPage, setPriceQuery } from '@/store/filterSlice'
 import { ChangeEvent, useEffect, useLayoutEffect } from 'react'
 import RemoveFilterBtn from '@/components/RemoveFilterBtn/RemoveFilterBtn'
 
@@ -60,11 +60,11 @@ export default function CatalogFilter() {
         else if (string.includes('format')){
             string.replace('format-','').split('-').map(item => {dispatch(addFormat(item))})
         }
-        else if (string.includes('price')){
+        else if (string.includes('params')){
             const minPriceString = searchParams.get("minPrice")
             const maxPriceString = searchParams.get("maxPrice")
-            if (typeof minPriceString === 'string'){dispatch(setMinUserPrice(Number(minPriceString.replace(/[^0-9]/g,""))))}
-            if (typeof maxPriceString === 'string'){dispatch(setMaxUserPrice(Number(maxPriceString.replace(/[^0-9]/g,""))))}
+            if (typeof minPriceString === 'string'){dispatch(setMinUserPrice(Number(minPriceString.replace(/[^0-9]/g,""))));dispatch(setPriceQuery())}
+            if (typeof maxPriceString === 'string'){dispatch(setMaxUserPrice(Number(maxPriceString.replace(/[^0-9]/g,""))));dispatch(setPriceQuery())}
         }
         else if (string.includes('page')){
             const page = searchParams.get("page")
@@ -80,7 +80,7 @@ export default function CatalogFilter() {
     
     useEffect(() => {     
         if (pathname){
-                router.push(pathname, { scroll: false })
+            router.push(pathname, { scroll: false })
             }
     }, [pathname])
     

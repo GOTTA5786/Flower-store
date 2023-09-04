@@ -118,9 +118,7 @@ export default async function Catalog( {params,searchParams} :IProp ) {
   return (
     <div>
       <div className={styles.container}>
-      <ProviderWrapper>
         {data?.map(item => {return <FlowerItem key={item.flower_id} {...item}/>})}
-      </ProviderWrapper>
       </div>
       <div className={styles.paginationContainer}>
         <ProviderWrapper><Pagination currentPage={currentPage} pages={pages} searchParams={searchParams}/></ProviderWrapper>
