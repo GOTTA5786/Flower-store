@@ -4,7 +4,7 @@ import CatalogPriceSlider from '../CatalogPriceSlider/CatalogPriceSlider'
 import styles from './CatalogFilter.module.css'
 import { useRouter,usePathname,useSearchParams } from 'next/navigation'
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks'
-import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,removeFilter,setMinUserPrice,setMaxUserPrice } from '@/store/filterSlice'
+import { addBrightness,addColor,addFormat,removeBrightness,removeColor,removeFormat,removeFilter,setMinUserPrice,setMaxUserPrice, setPage } from '@/store/filterSlice'
 import { ChangeEvent, useEffect, useLayoutEffect } from 'react'
 import RemoveFilterBtn from '@/components/RemoveFilterBtn/RemoveFilterBtn'
 
@@ -46,7 +46,12 @@ export default function CatalogFilter() {
     
     
     function setInitialPath(string:string){
-        if (string.includes('brightness')){
+        if (string.includes('page')){
+            const page = searchParams.get("page")
+            console.log(page);
+            if (typeof page === 'string'){dispatch(setPage(Number(page.replace(/[^0-9]/g,""))))}
+        }
+        else if (string.includes('brightness')){
             string.replace('brightness-','').split('-').map(item => {dispatch(addBrightness(item))})
         }
         else if (string.includes('color')){
@@ -60,6 +65,11 @@ export default function CatalogFilter() {
             const maxPriceString = searchParams.get("maxPrice")
             if (typeof minPriceString === 'string'){dispatch(setMinUserPrice(Number(minPriceString.replace(/[^0-9]/g,""))))}
             if (typeof maxPriceString === 'string'){dispatch(setMaxUserPrice(Number(maxPriceString.replace(/[^0-9]/g,""))))}
+        }
+        else if (string.includes('page')){
+            const page = searchParams.get("page")
+            console.log(page);
+            if (typeof page === 'string'){dispatch(setPage(Number(page.replace(/[^0-9]/g,""))))}
         }
     }
 

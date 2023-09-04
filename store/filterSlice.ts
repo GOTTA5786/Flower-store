@@ -1,11 +1,16 @@
 import { createSlice,PayloadAction } from '@reduxjs/toolkit'
+import { constants } from 'buffer'
 
 function setLink (state:IFilter):void {
     const brightnessString = (Object.keys(state.brightness).length !== 0) ? `/brightness-${Object.keys(state.brightness).join('-')}` : ''
     const colorString = (Object.keys(state.color).length !== 0) ? `/color-${Object.keys(state.color).join('-')}` : ''
     const formatString = (Object.keys(state.format).length !== 0) ? `/format-${Object.keys(state.format).join('-')}` : ''
-    const priceString = (state.leftDotState !== state.minPrice || state.rightDotState !== state.maxPrice) ? `/price?minPrice=${state.leftDotState}&maxPrice=${state.rightDotState}`: ''
-    state.pathname = `/catalog${brightnessString}${colorString}${formatString}${priceString}`
+    let parametersArray:string[] = []
+    if (state.leftDotState !== state.minPrice || state.rightDotState !== state.maxPrice){parametersArray.push(`minPrice=${state.leftDotState}`,`maxPrice=${state.rightDotState}`)}
+    if (state.page > 1){parametersArray.push(`page=${state.page}`)}
+    const paramsString = '/params?' + parametersArray.join('&')
+    
+    state.pathname = `/catalog${brightnessString}${colorString}${formatString}${paramsString}`
 }
 
 interface IFilter {
@@ -19,6 +24,7 @@ interface IFilter {
     rightDotState:number,
     inputMaxValue:number,
     inputMinValue:number,
+    page:number,
 }
 
 const initialState:IFilter = {
@@ -32,6 +38,7 @@ const initialState:IFilter = {
     inputMaxValue:1000,
     minPrice:0,
     maxPrice:1000,
+    page: 0,
 }
 
 export const filterSlice = createSlice({
@@ -41,7 +48,6 @@ export const filterSlice = createSlice({
     addBrightness: (state, action:PayloadAction<string>) => {
         state.brightness[action.payload]=(action.payload)
         setLink(state)
-        
     },
     removeBrightness: (state, action:PayloadAction<string>) => {
         delete state.brightness[action.payload]
@@ -99,9 +105,13 @@ export const filterSlice = createSlice({
     setUserInputMaxPrice: (state, action:PayloadAction<number>) => {
         state.inputMaxValue = action.payload
     },
+    setPage: (state,action:PayloadAction<number>) => {
+        state.page = action.payload
+        setLink(state)
+    }
   },
 })
 
-export const { addBrightness, addColor,addFormat,removeBrightness, removeColor,removeFormat,removeFilter,setMinUserPrice, setMaxUserPrice,setUserInputMinPrice,setUserInputMaxPrice } = filterSlice.actions
+export const { addBrightness, addColor,addFormat,removeBrightness, removeColor,removeFormat,removeFilter,setMinUserPrice, setMaxUserPrice,setUserInputMinPrice,setUserInputMaxPrice,setPage } = filterSlice.actions
 
 export default filterSlice.reducer

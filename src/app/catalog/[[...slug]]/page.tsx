@@ -1,7 +1,8 @@
 import styles from './page.module.css'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper'
 import FlowerItem, { IFlower } from '@/components/CatalogPageComponents/FlowerItem/FlowerItem'
-import { QueryResultRow, sql } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
+import Pagination from '@/components/CatalogPageComponents/Pagination/Pagination';
 
 interface IProp{
   params?:{ slug?: string[] }
@@ -11,13 +12,17 @@ interface IProp{
 
 export default async function Catalog( {params,searchParams} :IProp ) {
   let queryString:string = ''
+  let countQuery:string = ''
   let queryStringArray:string[] = []
-  let queryParamsArray:string[] = []
+  let queryParamsArray:(string|number)[] = []
   let queryBrightnessStringArray:string[] = []
   let queryColorStringArray:string[] = []
   let queryFormatStringArray:string[] = []
   let queryPriceStringArray:string[] = []
   let counter:number = 1
+  
+  const pagesLimit:number = 6
+  const currentPage:number = (searchParams?.page != undefined) ? Number(searchParams?.page) : 1
 
   function setSlugParams(string:string){
     if (string.includes('brightness-')){
@@ -37,6 +42,8 @@ export default async function Catalog( {params,searchParams} :IProp ) {
     }
   }
 
+  const offset:number = pagesLimit*((searchParams?.page !== undefined)? Number(searchParams?.page)-1 : 0)
+  
 
   if (params?.slug){
     params?.slug.map(string => setSlugParams(string))
@@ -47,6 +54,7 @@ export default async function Catalog( {params,searchParams} :IProp ) {
     queryPriceStringArray.push(`price >= $${counter}`)
     counter++
     queryPriceStringArray.push(`price <= $${counter}`)
+    counter++
   }
 
   if (queryBrightnessStringArray.length != 0){
@@ -66,35 +74,59 @@ export default async function Catalog( {params,searchParams} :IProp ) {
   }
 
   if (queryStringArray.length != 0){
-    queryString = 'SELECT * FROM flowers WHERE '+queryStringArray.join(' AND ')
+    queryString = 'SELECT * FROM flowers WHERE '+queryStringArray.join(' AND ')+` LIMIT ${pagesLimit}` + ` OFFSET $${counter}`
+    countQuery = 'SELECT COUNT(*) FROM flowers WHERE '+queryStringArray.join(' AND ')
   }
-  
 
-  const isResFlowers = (items: Array<QueryResultRow>): items is Array<IFlower> => {
-    return (items[0] as IFlower).flower_id !== undefined;
+  async function countFlowers (countString?:string,queryParamsArray?:(string|number)[]):Promise<number> {
+    if (countString && queryParamsArray){
+      const { rows } = await sql.query(countString,queryParamsArray);
+      return rows[0].count;
+    }
+    const { rows } = await sql`SELECT COUNT(*) FROM flowers`;
+      return rows[0].count;
   }
-  const fetchFlowers = async(queryString?:string,queryParamsArray?:string[]):Promise<IFlower[]> => {
+
+  const rowQuantity = await countFlowers(countQuery,queryParamsArray)
+
+  const pages:number = (rowQuantity !== 0) ? Math.ceil(rowQuantity / pagesLimit) : 1
+
+  queryParamsArray.push(offset)
+
+  const fetchFlowers = async(queryString?:string,queryParamsArray?:(string|number)[]):Promise<IFlower[]> => {
+    console.log(queryString);
+    console.log(queryParamsArray);
+    
+    
     if (queryString && queryParamsArray){
       const { rows } = await sql.query(queryString,queryParamsArray);
-      
+
       if(rows.length!=0){return rows as Array<IFlower>}
+
       console.log('incorrect filter');
-      
       return [];
     }
-    const { rows } = await sql`SELECT * FROM flowers`;
+    const quertWithoutFilter = `SELECT * FROM flowers  LIMIT ${pagesLimit} OFFSET $1`
+    const { rows } = await sql.query(quertWithoutFilter,queryParamsArray);
+
     if(rows.length!=0){return rows as Array<IFlower>}
     console.log('flowers not found');
     return []
-    
   }
-  const data = await fetchFlowers(queryString,queryParamsArray)
 
+  
+  const data = await fetchFlowers(queryString,queryParamsArray)
+  
   return (
-    <div className={styles.container}>
+    <div>
+      <div className={styles.container}>
       <ProviderWrapper>
         {data?.map(item => {return <FlowerItem key={item.flower_id} {...item}/>})}
       </ProviderWrapper>
+      </div>
+      <div className={styles.paginationContainer}>
+        <ProviderWrapper><Pagination currentPage={currentPage} pages={pages} searchParams={searchParams}/></ProviderWrapper>
+      </div>
     </div>
   )
 }
