@@ -4,7 +4,7 @@ import styles3 from './CatalogPuprle3.module.css'
 import styles4 from './CatalogPuprle4.module.css'
 
 interface Position{
-    position: 1 | 2 | 3 | 4;
+    position:number;
 }
 
 export default function CatalogPuprle({ position }:Position) {
@@ -17,6 +17,7 @@ export default function CatalogPuprle({ position }:Position) {
             return <div className={styles3.container}></div>
         case 4:
             return <div className={styles4.container}></div>
+        default: return <></>
       }
       
 }

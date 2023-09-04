@@ -94,8 +94,6 @@ export default async function Catalog( {params,searchParams} :IProp ) {
   queryParamsArray.push(offset)
 
   const fetchFlowers = async(queryString?:string,queryParamsArray?:(string|number)[]):Promise<IFlower[]> => {
-    console.log(queryString);
-    console.log(queryParamsArray);
     
     
     if (queryString && queryParamsArray){

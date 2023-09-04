@@ -19,16 +19,16 @@ export default function Home() {
         <Image src = {MainFlower1}
           alt = 'default'
           className={styles.MainFlover1}
-          ></Image>
+          />
           <div className={styles.containerWithShadow}></div>
         </div>
         <div className={styles.purpleEffect}></div>
         <div className={styles.blueEffect}></div> 
         <p className={styles.bgTextLF + " " + arizonia.className}>lover flower</p>
       </div>
-      <MainCatalogContainer></MainCatalogContainer>
-      <PopularContainer></PopularContainer>
-      <HowToOrderContainer></HowToOrderContainer>
+      <MainCatalogContainer/>
+      <PopularContainer/>
+      <HowToOrderContainer/>
     </div>
   )
 }

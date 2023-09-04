@@ -8,12 +8,12 @@ import DefaultHeader from '@/components/DefaultHeader/DefaultHeader'
 import CatalogWithCategories from '@/components/CatalogPageComponents/CatalogWithCategories/CatalogWithCategories'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper'
 import CatalogFilter from '@/components/CatalogPageComponents/CatalogFilter/CatalogFilter'
-import Footer from '@/components/footer/Footer'
 
 
 interface IProp{
     children:React.ReactNode
 }
+const purpleCounter = Array.from({length: 4}, (_, index) => index + 1);
 export default function layout({ children }:IProp) {
   return (
     <div className={styles.container}>
@@ -30,10 +30,7 @@ export default function layout({ children }:IProp) {
             width = {1573}
             height ={1317}
             alt = 'default'/>
-        <CatalogPuprle position={1}/>
-        <CatalogPuprle position={2}/>
-        <CatalogPuprle position={3}/>
-        <CatalogPuprle position={4}/>
+        {purpleCounter.map(index => {return <CatalogPuprle position={index}/>})}
         <DefaultHeader/>
       </div>
       <div className={styles.content}>

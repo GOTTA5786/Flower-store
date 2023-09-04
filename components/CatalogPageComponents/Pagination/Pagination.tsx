@@ -13,15 +13,15 @@ interface IProp{
     searchParams?: {page?:string}
   }
 
-export default function Pagination( {params,searchParams,currentPage,pages} :IProp ) {
+export default function Pagination( {currentPage,pages} :IProp ) {
     const pathname = usePathname()
     console.log(pathname);
     const dispatch = useAppDispatch()
     const pagesQuantity = Array.from({length: pages}, (_, index) => index + 1);
   return (
-    <div className={styles.container}>
+    <div className={styles.container + " " + oswaldo.className}>
         <FaArrowLeft className={styles.arrow} onClick={e => {if (currentPage > 1){dispatch(setPage(currentPage-1))}}}/>
-            {pagesQuantity.map(index => {return <p className={(currentPage === index)? styles.activePageBtn + " " + oswaldo.className : styles.pageBtn + " " + oswaldo.className} onClick={e => dispatch(setPage(index))}>{index}</p>})}
+            {pagesQuantity.map(index => {return <p className={(currentPage === index)? styles.activePageBtn: styles.pageBtn} key = {index} onClick={e => dispatch(setPage(index))}>{index}</p>})}
         <FaArrowRight className={styles.arrow} onClick={e => {if (currentPage < pages){dispatch(setPage(currentPage+1))}}}/>
     </div>
   )
