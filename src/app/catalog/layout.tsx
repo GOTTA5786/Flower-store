@@ -30,7 +30,7 @@ export default function layout({ children }:IProp) {
             width = {1573}
             height ={1317}
             alt = 'default'/>
-        {purpleCounter.map(index => {return <CatalogPuprle position={index}/>})}
+        {purpleCounter.map(index => {return <CatalogPuprle key={index} position={index}/>})}
         <DefaultHeader/>
       </div>
       <div className={styles.content}>
