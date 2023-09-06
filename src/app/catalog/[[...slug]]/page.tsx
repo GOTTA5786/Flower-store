@@ -9,6 +9,12 @@ interface IProp{
   searchParams?: {minPrice?:string,maxPrice?:string,page?:string}
 }
 
+function guardIFlover (value:unknown):value is IFlower{
+  if ((value as IFlower).flower_id !== undefined){
+    return true
+  }
+  return false
+}
 
 export default async function Catalog( {params,searchParams} :IProp ) {
   let queryString:string = ''
@@ -94,34 +100,33 @@ export default async function Catalog( {params,searchParams} :IProp ) {
   queryParamsArray.push(offset)
 
   const fetchFlowers = async(queryString?:string,queryParamsArray?:(string|number)[]):Promise<IFlower[]> => {
-    
-    
     if (queryString && queryParamsArray){
       const { rows } = await sql.query(queryString,queryParamsArray);
 
       if(rows.length!=0){return rows as Array<IFlower>}
 
-      console.log('incorrect filter');
       return [];
     }
     const quertWithoutFilter = `SELECT * FROM flowers  LIMIT ${pagesLimit} OFFSET $1`
     const { rows } = await sql.query(quertWithoutFilter,queryParamsArray);
 
     if(rows.length!=0){return rows as Array<IFlower>}
-    console.log('flowers not found');
+
     return []
   }
 
   
-  const data = await fetchFlowers(queryString,queryParamsArray)
-  
+  const response = await fetchFlowers(queryString,queryParamsArray)
+  let data:Array<IFlower> = []
+  if (response.length !== 0){response.map(flower => {if (guardIFlover(flower)){data.push(flower)}})}
+
   return (
     <div>
       <div className={styles.container}>
-        {data?.map(item => {return <FlowerItem key={item.flower_id} {...item}/>})}
+        {data.length !== 0 ? data.map(item => {return <FlowerItem key={item.flower_id} {...item}/>}): <p>По вашему запросу ничего не найдено</p>}
       </div>
       <div className={styles.paginationContainer}>
-        <ProviderWrapper><Pagination currentPage={currentPage} pages={pages} searchParams={searchParams}/></ProviderWrapper>
+        <ProviderWrapper><Pagination currentPage={currentPage} pages={pages}/></ProviderWrapper>
       </div>
     </div>
   )

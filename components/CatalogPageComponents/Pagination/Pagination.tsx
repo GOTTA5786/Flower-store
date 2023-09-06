@@ -10,12 +10,10 @@ interface IProp{
     pages:number
     currentPage:number
     params?:{ slug?: string[] }
-    searchParams?: {page?:string}
   }
 
 export default function Pagination( {currentPage,pages} :IProp ) {
     const pathname = usePathname()
-    console.log(pathname);
     const dispatch = useAppDispatch()
     const pagesQuantity = Array.from({length: pages}, (_, index) => index + 1);
   return (

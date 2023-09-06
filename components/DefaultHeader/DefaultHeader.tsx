@@ -5,6 +5,7 @@ import styles from './DefaultHeader.module.css'
 import { oswaldo } from '@/fonts/fonts'
 import { FaSquareWhatsapp,FaSquarePhone,FaInstagram,FaPhone } from "react-icons/fa6";
 import CartBtn from '../CartBtn/CartBtn'
+import ProviderWrapper from '../ProviderWrapper/ProviderWrapper'
 
 
 export default function DefaultHeader() {
@@ -40,7 +41,7 @@ export default function DefaultHeader() {
           <p className={styles.blueText + ' ' + oswaldo.className}>Заказать звонок</p>
         </div>
         <div className={styles.blurContainer3}>
-          <CartBtn/>
+          <ProviderWrapper><CartBtn/></ProviderWrapper>
         </div>
       </div>
     </div>

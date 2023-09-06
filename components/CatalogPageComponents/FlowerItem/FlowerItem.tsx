@@ -1,4 +1,5 @@
 import AddToCartBtn from '@/components/AddToCartBtn/AddToCartBtn'
+import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper';
 import { oswaldo } from '@/fonts/fonts'
 import Image from 'next/image'
 import styles from './FlowerItem.module.css'
@@ -14,15 +15,13 @@ export interface IFlower{
   color:string;
   brighness:string;
   format:string;
-  category:string
-      
+  category:string    
 }
 export default function FlowerItem( prop:IFlower) {
   return (
     <div className={styles.cardContainer}>
           {prop.sale && <span className={styles.onSale + ' ' + oswaldo.className}>Sale</span>}
         <div className={styles.imageContainer}>
-            
             <Image className={styles.picture}
                 alt = 'default'
                 src = {`/Items_images/${prop.pathtoimg}.png`}
@@ -33,7 +32,7 @@ export default function FlowerItem( prop:IFlower) {
             {prop.sale ? <div className={styles.price + ' ' + oswaldo.className}><p className={styles.newPrice}>{prop.saleprice} ₽</p><p className={styles.oldPrice}>{prop.price} ₽</p></div>
             : <p className={styles.newPrice + ' ' + oswaldo.className}>{prop.price} ₽</p>}
         </div>
-        <AddToCartBtn/>
+        <ProviderWrapper><AddToCartBtn {...prop}/></ProviderWrapper>
     </div>
   )
 }

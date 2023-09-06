@@ -1,3 +1,4 @@
+import { cartSlice } from './cartSlice';
 import { configureStore } from '@reduxjs/toolkit'
 import { sliderSlice } from './sliderSlice'
 import { catalogPriceSlider } from './catalogPriceSliderSlice'
@@ -8,6 +9,7 @@ export const store = configureStore({
     slider: sliderSlice.reducer,
     priceSlider: catalogPriceSlider.reducer,
     filter: filterSlice.reducer,
+    cart: cartSlice.reducer,
   },
 })
 

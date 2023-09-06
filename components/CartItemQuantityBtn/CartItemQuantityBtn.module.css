@@ -1,0 +1,65 @@
+.container{
+    inherits: none;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    height: 30px;
+    flex-shrink: 0;
+    border: 0.5px solid #555;
+}
+.minus{
+    display: flex;
+    color: #555;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border: solid red 1px;
+    width: 30px;
+    padding-bottom: 10px;
+    height: inherit;
+}
+.plus{
+    display: flex;
+    color: #555;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border: solid red 1px;
+    width: 30px;
+    padding-bottom: 4px;
+    height: inherit;
+}
+.plus:hover,.minus:hover{
+    cursor: pointer;
+    color:#43FFD2
+}
+
+.container > input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    
+  }
+.container > input[type='number']{
+    text-align: center;
+    color: #43FFD2;
+    background: none;
+    border: none;
+    max-width: 40px;
+    font-weight: 300;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
