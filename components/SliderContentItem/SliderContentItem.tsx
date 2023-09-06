@@ -4,19 +4,10 @@ import styles from './SliderContentItem.module.css'
 import { oswaldo } from '@/fonts/fonts'
 import AddToCartBtn from '../AddToCartBtn/AddToCartBtn'
 import { useAppSelector } from '@/hooks/hooks'
+import { IFlower } from '../CatalogPageComponents/FlowerItem/FlowerItem'
 
-interface Props{
-    key:number,
-    prop:{flower_id:number;
-        title:string;
-        price:number;
-        sale:boolean;
-        saleprice:number;
-        description:string;
-        pathtoimg:string;}
-}
 
-export default function SliderContentItem({ prop }:Props) {
+export default function SliderContentItem(prop:IFlower) {
 
   const position = useAppSelector(state => state.slider.value)
 
@@ -31,7 +22,7 @@ export default function SliderContentItem({ prop }:Props) {
         </div>
         <p className={styles.title + " " + oswaldo.className}>{prop.title}</p>
         <p className={styles.price + " " + oswaldo.className}>{prop.price} ₽</p>
-        <AddToCartBtn></AddToCartBtn>
+        <AddToCartBtn {...prop}></AddToCartBtn>
     </div>
   )
 }
