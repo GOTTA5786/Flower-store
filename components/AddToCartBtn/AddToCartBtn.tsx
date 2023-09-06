@@ -6,14 +6,14 @@ import { useAppDispatch } from '@/hooks/hooks'
 import { addToCart, ICartItem } from '@/store/cartSlice'
 
 
-export default function AddToCartBtn(flower:IFlower) {
+export default function AddToCartBtn({flower_id,pathtoimg,price,sale,saleprice,title}:IFlower) {
   
   const item:ICartItem={
-    flower_id: (flower.flower_id),
-    pathtoimg: (flower.pathtoimg),
-    price: ((flower.sale) ? flower.saleprice : flower.price),
+    flower_id: flower_id,
+    pathtoimg: pathtoimg,
+    price: sale ? saleprice : price,
     quantity: 1,
-    title: (flower.title)
+    title: title,
   }
   const dispatch = useAppDispatch()
   return (
