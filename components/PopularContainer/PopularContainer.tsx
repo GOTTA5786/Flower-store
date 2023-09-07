@@ -3,12 +3,14 @@ import styles from './PopularContainer.module.css'
 import { cormorant, oswaldo } from '@/fonts/fonts'
 import Image from 'next/image'
 import PopularBg from '@/public/PopularBg.png'
-import PopularItemsSlider from '../PopularItemsSlider/PopularItemsSlider'
+import PopularItemsSlider, { IFlowerArray } from '../PopularItemsSlider/PopularItemsSlider'
 import ProviderWrapper from '../ProviderWrapper/ProviderWrapper'
 import PopularBlueSvg from '../EffectComponents/PopularBlue/PopularBlueSvg'
 import PopularPurpleSvg from '../EffectComponents/PopularPurple/PopularPurpleSvg'
 
-export default function PopularContainer() {
+
+export default function PopularContainer( props :IFlowerArray) {
+
   return (
     <div className={styles.container}>
         <Image src = {PopularBg}
@@ -18,7 +20,7 @@ export default function PopularContainer() {
         <p className={styles.popularText2 + " " + cormorant.className}>букеты</p>
         <p className={styles.popularText3 + " " + oswaldo.className}>Самые любимые композиции наших клиентов</p>
         <ProviderWrapper>
-          <PopularItemsSlider></PopularItemsSlider>
+          <PopularItemsSlider flowers={ props.flowers }></PopularItemsSlider>
         </ProviderWrapper>
         <PopularBlueSvg></PopularBlueSvg>
         <PopularPurpleSvg></PopularPurpleSvg>

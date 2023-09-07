@@ -19,7 +19,7 @@ export const sliderSlice = createSlice({
   initialState,
   reducers: {
     toRight: (state) => {
-      if (state.dots > state.count){
+      if (state.dots-1 > state.count){
         state.value -= 1140
         state.count = state.count + 1
       }

@@ -6,8 +6,30 @@ import MainCatalogContainer from '@/components/MainCatalogContainer/MainCatalogC
 import PopularContainer from '@/components/PopularContainer/PopularContainer'
 import HowToOrderContainer from '@/components/HowToOrderContainer/HowToOrderContainer'
 import DefaultHeader from '@/components/DefaultHeader/DefaultHeader'
+import { IFlower } from '@/components/CatalogPageComponents/FlowerItem/FlowerItem'
+import { sql } from '@vercel/postgres'
 
-export default function Home() {
+export default async function Home() {
+  function guardIFlover (value:unknown):value is IFlower{
+    if ((value as IFlower).flower_id !== undefined){
+      return true
+    }
+    return false
+  }
+  
+  const fetchFlowers = async():Promise<IFlower[]> => {
+    const { rows } = await sql`SELECT * FROM flowers  LIMIT 9`;
+
+    if(rows.length!=0){return rows as Array<IFlower>}
+
+    return []
+  }
+
+  
+  let data:Array<IFlower> = []
+  const response = await fetchFlowers()
+  if (response.length !== 0){response.map(flower => {if (guardIFlover(flower)){data.push(flower)}})}
+  
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container1}>
@@ -27,7 +49,7 @@ export default function Home() {
         <p className={styles.bgTextLF + " " + arizonia.className}>lover flower</p>
       </div>
       <MainCatalogContainer/>
-      <PopularContainer/>
+      <PopularContainer flowers={data}/>
       <HowToOrderContainer/>
     </div>
   )
