@@ -33,7 +33,9 @@ export default function FlowerItem( prop:IFlower) {
             {prop.sale ? <div className={styles.price + ' ' + oswaldo.className}><p className={styles.newPrice}>{prop.saleprice} ₽</p><p className={styles.oldPrice}>{prop.price} ₽</p></div>
             : <p className={styles.newPrice + ' ' + oswaldo.className}>{prop.price} ₽</p>}
         </div>
-        <ProviderWrapper><AddToCartBtn {...prop}/></ProviderWrapper>
+        <ProviderWrapper>
+          <AddToCartBtn {...prop}/>
+        </ProviderWrapper>
     </div>
   )
 }

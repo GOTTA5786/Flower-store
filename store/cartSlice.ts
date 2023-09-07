@@ -25,7 +25,11 @@ const initialState: ICartState = {
 function setItemsCounter (state:ICartState) {
     state.items.map(item => {state.itemsCounter += item.quantity})
 }
-
+function setTotalPrice (state:ICartState) {
+    let totalPrice:number = 0
+    state.items.map(item => {totalPrice += Number((item.price * item.quantity).toFixed(2))})
+    state.totalPrice = totalPrice
+}
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -42,7 +46,22 @@ export const cartSlice = createSlice({
             }
         }
         setItemsCounter(state)
-      
+        setTotalPrice(state)
+    },
+    removeFromCart: (state, action:PayloadAction<number>) => {
+        if (state.items.length !== 0){
+            const index = state.items.findIndex(item => item.flower_id === action.payload)
+            if (index !== -1){
+                state.items.splice(index,1)
+                setItemsCounter(state)
+                setTotalPrice(state)
+            }
+        }
+    },
+    clearCart: (state) => {
+        state.itemsCounter = 0,
+        state.items = [],
+        state.totalPrice = 0
     },
     disableCart: (state) => {
         state.isActive = false
@@ -52,19 +71,21 @@ export const cartSlice = createSlice({
     },
     increaseQuantity:(state, action:PayloadAction<number>) => {
         state.items.map(item => {if (item.flower_id === action.payload){item.quantity++}})
+        setTotalPrice(state)
     },
     decreaseQuantity:(state, action:PayloadAction<number>) => {
         state.items.map(item => {if (item.flower_id === action.payload){if (item.quantity != 1){item.quantity--}}})
+        setTotalPrice(state)
     },
     setQuantity:(state, action:PayloadAction<{flower_id:number,quantity:number}>) => {
         if (action.payload.quantity && action.payload.quantity >= 1){
             state.items.map(item => {if (item.flower_id === action.payload.flower_id){item.quantity = action.payload.quantity}})
+            setTotalPrice(state)
         }
-        
     },
   },
 })
 
-export const { disableCart, enableleCart, addToCart, increaseQuantity, decreaseQuantity, setQuantity } = cartSlice.actions
+export const { disableCart, enableleCart, addToCart, increaseQuantity, decreaseQuantity, setQuantity, removeFromCart, clearCart } = cartSlice.actions
 
 export default cartSlice.reducer

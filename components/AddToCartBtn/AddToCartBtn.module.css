@@ -9,6 +9,13 @@
     align-items: center;
     color:#FFF;
     z-index: 3;
+    user-select: none;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 .container:hover{
     cursor: pointer;
@@ -16,12 +23,27 @@
     color:#040A09;
     border: none;
 }
-.buttonText{
-    font-size: 15px;
+.inCartContainer{
+    user-select: none;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: 0.5px solid #43FFD2;
+    width: 70%;
+    height: 50px;
+    flex-shrink: 0; 
+    transition: all ease 200ms;
+    color: #43FFD2;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.48px;
     text-transform: uppercase;
-    color: inherit;
+}
+.inCartContainer:hover{
+    color: #040A09;
+    background-color: #43FFD2;
 }

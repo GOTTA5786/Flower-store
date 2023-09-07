@@ -11,9 +11,13 @@ interface IQuantity{
 export default function CartItemQuantityBtn( { flower_id, quantity }:IQuantity) {
     const [inputValue, setInputValue] = useState<number | string>(quantity)
     const dispatch = useAppDispatch()
+
+    
     useEffect(() => {
       setInputValue(quantity)
     }, [quantity])
+
+
     function handleBlur(e:FocusEvent<HTMLInputElement, Element>){
         if (e.target.value !== '') {
             dispatch(setQuantity({flower_id:flower_id,quantity:e.target.valueAsNumber}))
@@ -27,7 +31,7 @@ export default function CartItemQuantityBtn( { flower_id, quantity }:IQuantity) 
             className={styles.quantity}
             placeholder={`${quantity}`}
             value={inputValue} 
-            onChange={e => setInputValue(e.target.value)} 
+            onChange={e => (e.target.value === '0') ? setInputValue('1') : setInputValue(e.target.value)} 
             onBlur={e => handleBlur(e)}/>
         <span className={styles.plus} onClick={e => dispatch(increaseQuantity(flower_id))}>+</span>
     </div>

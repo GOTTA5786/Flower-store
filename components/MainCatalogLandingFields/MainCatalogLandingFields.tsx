@@ -7,11 +7,10 @@ interface Props{
     main:string,
     children:string[]
   }
-  key:number
 }
 
 
-export default function MainCatalogLandingFields({prop,key}:Props) {
+export default function MainCatalogLandingFields({prop}:Props) {
   return (
     <>
       <p className={styles.p + " " + oswaldo.className}> {prop.main} </p>

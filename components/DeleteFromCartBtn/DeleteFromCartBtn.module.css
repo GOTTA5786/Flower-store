@@ -1,0 +1,26 @@
+.removeBtn{
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: 0.5px solid #D978AC;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 30px;
+    flex-shrink: 0; 
+    transition: all ease 200ms;
+    color: #D978AC;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+}
+.removeBtn:hover{
+    background-color: #D978AC;
+    color: #040A09;
+}
