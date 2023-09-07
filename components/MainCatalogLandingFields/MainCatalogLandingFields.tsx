@@ -7,15 +7,16 @@ interface Props{
     main:string,
     children:string[]
   }
+  key:number
 }
 
 
-export default function MainCatalogLandingFields({prop}:Props) {
+export default function MainCatalogLandingFields({prop,key}:Props) {
   return (
     <>
       <p className={styles.p + " " + oswaldo.className}> {prop.main} </p>
       <ul className={styles.ul}>
-        {prop.children.map((item:string,i:number):any => { return <li key={prop.id} className={styles.li + " " + oswaldo.className}>{item}</li> })}
+        {prop.children.map((item:string,i:number):any => { return <li key={i} className={styles.li + " " + oswaldo.className}>{item}</li> })}
       </ul>
     </>
   )

@@ -13,13 +13,11 @@ export default function SliderContent(flowers:IFlowerArray) {
   const dispatch = useAppDispatch()
 
   dispatch(setDots(dotsAmount))
-  console.log(flowers.flowers);
-  
   
   return (
     <div className={ styles.container }>
       {flowers.flowers.map(item => {
-        return <SliderContentItem key = { item.flower_id } {...item}></SliderContentItem>
+        return <SliderContentItem key = {item.flower_id} {...item}></SliderContentItem>
       })}
     </div>
   )

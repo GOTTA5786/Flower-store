@@ -18,7 +18,7 @@ export default async function Home() {
   }
   
   const fetchFlowers = async():Promise<IFlower[]> => {
-    const { rows } = await sql`SELECT * FROM flowers  LIMIT 9`;
+    const { rows } = await sql`SELECT * FROM flowers LIMIT 9`;
 
     if(rows.length!=0){return rows as Array<IFlower>}
 
@@ -29,7 +29,7 @@ export default async function Home() {
   let data:Array<IFlower> = []
   const response = await fetchFlowers()
   if (response.length !== 0){response.map(flower => {if (guardIFlover(flower)){data.push(flower)}})}
-  
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container1}>
