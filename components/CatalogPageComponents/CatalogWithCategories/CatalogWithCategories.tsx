@@ -1,5 +1,5 @@
 import CategoryBtn from "../../CategoryBtn/CategoryBtn";
-import { categories } from "@/hardCode/categories.js";
+import { categories } from "@/hardCode/categories";
 import styles from './CatalogWithCategories.module.css'
 import { cormorant, oswaldo } from '@/fonts/fonts'
 
