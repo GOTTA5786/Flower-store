@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Footer from '../../components/footer/Footer'
 import CartMenu from '@/components/CartMenu/CartMenu'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper'
-import Header from '@/components/Header/Header'
+import Header from '@/components/bla/Header'
 
 
 export const metadata: Metadata = {
