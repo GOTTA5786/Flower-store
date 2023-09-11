@@ -1,7 +1,6 @@
 import AddToCartBtn from '@/components/AddToCartBtn/AddToCartBtn'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper';
 import { oswaldo } from '@/fonts/fonts'
-import { flowers } from '@/hardCode/flowers';
 import Link from 'next/dist/client/link';
 import Image from 'next/image'
 import styles from './FlowerItem.module.css'
