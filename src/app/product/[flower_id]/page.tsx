@@ -1,13 +1,11 @@
 import AddToCartBtn from '@/components/AddToCartBtn/AddToCartBtn';
-import CartItemQuantityBtn from '@/components/CartItemQuantityBtn/CartItemQuantityBtn';
 import { IFlower } from '@/components/CatalogPageComponents/FlowerItem/FlowerItem';
 import CatalogPuprle from '@/components/EffectComponents/CatalogPurple/CatalogPuprle';
-import Header from '@/components/header/Header'
+import Header from '@/components/Header/Header'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper';
 import { cormorant, oswaldo } from '@/fonts/fonts';
 import { sql } from '@vercel/postgres';
 import Image from 'next/image';
-import { Provider } from 'react-redux';
 import styles from './page.module.css'
 
 interface IFlower_id {
