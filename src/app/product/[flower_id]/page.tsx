@@ -1,7 +1,7 @@
 import AddToCartBtn from '@/components/AddToCartBtn/AddToCartBtn';
 import { IFlower } from '@/components/CatalogPageComponents/FlowerItem/FlowerItem';
 import CatalogPuprle from '@/components/EffectComponents/CatalogPurple/CatalogPuprle';
-import Header from '@/components/bla/Header'
+import Header from '@/components/Header/Header'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper';
 import { cormorant, oswaldo } from '@/fonts/fonts';
 import { sql } from '@vercel/postgres';
