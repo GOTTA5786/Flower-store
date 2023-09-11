@@ -12,7 +12,7 @@ export default function CartBtn() {
   const totalQuantity = useAppSelector(state => state.cart.items.length)
   return (
     <div>
-        <div className={styles.container} onClick={e => {dispatch(enableleCart()),document.body.style.overflow = 'hidden'}}>
+        <div className={styles.container} onClick={e => {dispatch(enableleCart())}}>
             <div className={styles.counter + " " + oswaldo.className}>{totalQuantity}</div>
             <PiHandbagLight className={styles.btn}></PiHandbagLight>
         </div>

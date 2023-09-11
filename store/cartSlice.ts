@@ -65,9 +65,11 @@ export const cartSlice = createSlice({
     },
     disableCart: (state) => {
         state.isActive = false
+        document.body.style.overflow = 'auto'
     },
     enableleCart: (state) => {
         state.isActive = true
+        document.body.style.overflow = 'hidden'
     },
     increaseQuantity:(state, action:PayloadAction<number>) => {
         state.items.map(item => {if (item.flower_id === action.payload){item.quantity++}})

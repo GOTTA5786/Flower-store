@@ -119,7 +119,8 @@ export default async function Catalog( {params,searchParams} :IProp ) {
   const response = await fetchFlowers(queryString,queryParamsArray)
   let data:Array<IFlower> = []
   if (response.length !== 0){response.map(flower => {if (guardIFlover(flower)){data.push(flower)}})}
-
+  
+  
   return (
     <div>
       <div className={styles.container}>

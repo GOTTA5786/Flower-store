@@ -8,6 +8,7 @@ import Image from 'next/image';
 import CartItemQuantityBtn from '../CartItemQuantityBtn/CartItemQuantityBtn';
 import { useEffect, useState } from 'react';
 import DeleteFromCartBtn from '../DeleteFromCartBtn/DeleteFromCartBtn';
+import Link from 'next/link';
 
 
 export default function CartMenu() {
@@ -25,27 +26,31 @@ export default function CartMenu() {
     
 
   return (
-    <div className={`${styles.container} ${isActive ? styles.active : ''} ${oswaldo.className}`} onClick={e => {dispatch(disableCart()), document.body.style.overflow = 'auto'}}>
+    <div className={`${styles.container} ${isActive ? styles.active : ''} ${oswaldo.className}`} onClick={e => {dispatch(disableCart())}}>
         <div className={`${styles.content} ${isActive ? styles.active : ''}`} onClick = {e => e.stopPropagation()}>
             <div>
                 <div className={styles.cartHeader}>
                     <p>Ваша корзина</p>
-                    <FaXmark className={styles.xmark} onClick={e => {dispatch(disableCart()), document.body.style.overflow = 'auto'}}/>
+                    <FaXmark className={styles.xmark} onClick={e => {dispatch(disableCart())}}/>
                 </div>
                 <div className={styles.itemsBlock}>
                     {(items.length === 0 ) ? <p className={styles.emptyCart}>Ваша корзина пуста</p> :
                     items.map(item => {return <div key={item.flower_id} className={styles.oneItemBlock}>
                         <div className={styles.leftBlock}>
                             <div className={styles.itemImg}>
-                                <Image
-                                    src={`/Items_images/${item.pathtoimg}.png`}
-                                    fill={true}
-                                    alt='default'
-                                />
+                                <Link href = {`/product/${item.flower_id}`} onClick={e => dispatch(disableCart())}>
+                                    <Image
+                                        src={`/Items_images/${item.pathtoimg}.png`}
+                                        fill={true}
+                                        alt='default'
+                                    />
+                                </Link>
                             </div>
                             <div className={styles.description}>
                                 <div className={styles.descriptionTop}>
-                                    <p className={styles.descriptionTitle}>{item.title}</p>
+                                    <Link href = {`/product/${item.flower_id}`} 
+                                    className={styles.descriptionTitle} 
+                                    onClick={e => dispatch(disableCart())}>{item.title}</Link>
                                     <span className={styles.descriptionPrice}>{item.price} ₽ x {item.quantity}</span>
                                 </div>
                                 <CartItemQuantityBtn quantity={item.quantity} flower_id={item.flower_id}/>

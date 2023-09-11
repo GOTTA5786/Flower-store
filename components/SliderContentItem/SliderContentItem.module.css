@@ -6,6 +6,7 @@
     transition: transform ease 400ms;
 }
 .title{
+    text-decoration: none;
     font-size: 25px;
     font-style: normal;
     font-weight: 400;
@@ -15,6 +16,10 @@
     color: #FFF;
 
 }
+.title:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 .price{
     color: #FFF;
     font-size: 20px;
@@ -23,7 +28,7 @@
     line-height: normal;
     letter-spacing: 0.56px;
     text-transform: uppercase;
-
+    margin-bottom: 10px;
 }
 .pictureContainer{
     width: 350;

@@ -2,6 +2,7 @@ import AddToCartBtn from '@/components/AddToCartBtn/AddToCartBtn'
 import ProviderWrapper from '@/components/ProviderWrapper/ProviderWrapper';
 import { oswaldo } from '@/fonts/fonts'
 import { flowers } from '@/hardCode/flowers';
+import Link from 'next/dist/client/link';
 import Image from 'next/image'
 import styles from './FlowerItem.module.css'
 
@@ -23,12 +24,14 @@ export default function FlowerItem( prop:IFlower) {
     <div className={styles.cardContainer}>
           {prop.sale && <span className={styles.onSale + ' ' + oswaldo.className}>Sale</span>}
         <div className={styles.imageContainer}>
-            <Image className={styles.picture}
-                alt = 'default'
-                src = {`/Items_images/${prop.pathtoimg}.png`}
-                fill={true}></Image>
+            <Link href={`/product/${prop.flower_id}`}>
+              <Image className={styles.picture}
+                  alt = 'default'
+                  src = {`/Items_images/${prop.pathtoimg}.png`}
+                  fill={true}></Image>
+            </Link>
         </div>
-        <p className={styles.title + ' ' + oswaldo.className}>{prop.title}</p>
+        <Link href={`/product/${prop.flower_id}`} className={styles.title + ' ' + oswaldo.className}>{prop.title}</Link>
         <div>
             {prop.sale ? <div className={styles.price + ' ' + oswaldo.className}><p className={styles.newPrice}>{prop.saleprice} ₽</p><p className={styles.oldPrice}>{prop.price} ₽</p></div>
             : <p className={styles.newPrice + ' ' + oswaldo.className}>{prop.price} ₽</p>}

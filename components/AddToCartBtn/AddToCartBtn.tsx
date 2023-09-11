@@ -29,7 +29,7 @@ export default function AddToCartBtn(flower:IFlower) {
 
   if (checkIsInCart(items)){
     return (
-      <span className={styles.inCartContainer + " " + oswaldo.className} onClick={e => {document.body.style.overflow = 'hidden'; e.preventDefault(); dispatch(enableleCart())}}>
+      <span className={styles.inCartContainer + " " + oswaldo.className} onClick={e => {e.preventDefault(); dispatch(enableleCart())}}>
         Товар уже в корзине
       </span>
     )

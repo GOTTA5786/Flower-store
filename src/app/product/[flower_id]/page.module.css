@@ -1,0 +1,103 @@
+.container{
+    overflow: hidden;
+}
+.content{
+    display: flex;
+    overflow-x: hidden;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    position: absolute;
+    top: 200px;
+}
+.itemImage{
+    overflow: hidden;
+    position: relative;
+    height: 60vh;
+    width: 30vw;
+}
+.oldPrice{
+    margin-left: 20px;
+    color: #939393;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-decoration-line: line-through;
+    text-transform: uppercase;
+}
+.newPrice{
+    color: #43FFD2;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+}
+.price{
+    display: flex;
+}
+.title{
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-transform: uppercase; 
+    transform: translateY(-15px);
+}
+.description{
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+}
+.descriptionBlock{
+    margin-top: 10px;
+}
+.descriptionTag{
+    color: #43FFD2;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.48px;
+}
+.info{
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 40vw;
+}
+.toCartContainer{
+    display: flex;
+    justify-content: center;
+    margin-left: -20px;
+    position: absolute;
+    width: inherit;
+    bottom: 0;
+}
+.notFoundContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    height: 60vh;
+    position: absolute;
+    top: 200px;
+}
+.notFound{
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
