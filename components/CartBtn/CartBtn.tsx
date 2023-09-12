@@ -9,7 +9,7 @@ import { enableleCart } from "@/store/cartSlice"
 
 export default function CartBtn() {
   const dispatch  = useAppDispatch()
-  const totalQuantity = useAppSelector(state => state.cart.items.length)
+  const totalQuantity = useAppSelector(state => state.cart.items.size)
   return (
     <div>
         <div className={styles.container} onClick={e => {dispatch(enableleCart())}}>

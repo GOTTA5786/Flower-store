@@ -3,6 +3,9 @@ import { configureStore } from '@reduxjs/toolkit'
 import { sliderSlice } from './sliderSlice'
 import { catalogPriceSlider } from './catalogPriceSliderSlice'
 import { filterSlice } from './filterSlice'
+import { enableMapSet } from 'immer';
+
+enableMapSet()
 
 export const store = configureStore({
   reducer: {

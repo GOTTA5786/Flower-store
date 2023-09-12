@@ -31,7 +31,7 @@ export default function CartItemQuantityBtn( { flower_id, quantity }:IQuantity) 
             className={styles.quantity}
             placeholder={`${quantity}`}
             value={inputValue} 
-            onChange={e => (e.target.value === '0') ? setInputValue('1') : setInputValue(e.target.value)} 
+            onChange={e => (e.target.value === '0') ? setInputValue('1') : (+e.target.value >= 100) ? setInputValue('100') : setInputValue(e.target.value)} 
             onBlur={e => handleBlur(e)}/>
         <span className={styles.plus} onClick={e => dispatch(increaseQuantity(flower_id))}>+</span>
     </div>

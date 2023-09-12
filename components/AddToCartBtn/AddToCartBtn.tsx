@@ -19,15 +19,7 @@ export default function AddToCartBtn(flower:IFlower) {
     title: (flower.title)
   }
 
-  function checkIsInCart(items:Array<ICartItem>):boolean{
-    if (items.length !== 0){
-      const index = items.findIndex(item => item.flower_id === flower.flower_id)
-      if (index !== -1){return true}
-    }
-    return false
-  }
-
-  if (checkIsInCart(items)){
+  if (items.has(flower.flower_id)){
     return (
       <span className={styles.inCartContainer + " " + oswaldo.className} onClick={e => {e.preventDefault(); dispatch(enableleCart())}}>
         Товар уже в корзине

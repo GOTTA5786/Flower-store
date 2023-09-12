@@ -1,5 +1,6 @@
 import { createSlice,PayloadAction } from '@reduxjs/toolkit'
 
+
 export interface ICartItem {
     flower_id:number,
     pathtoimg:string,
@@ -9,58 +10,39 @@ export interface ICartItem {
 }
 
 interface ICartState {
-    itemsCounter:number,
-    items:Array<ICartItem>,
+    items:Map<number,ICartItem>,
     totalPrice:number,
     isActive:boolean,
 }
 
 const initialState: ICartState = {
-    itemsCounter:0,
-    items: [],
+    items: new Map<number,ICartItem>(),
     totalPrice:0,
     isActive:false,
 }
 
-function setItemsCounter (state:ICartState) {
-    state.items.map(item => {state.itemsCounter += item.quantity})
-}
-function setTotalPrice (state:ICartState) {
-    let totalPrice:number = 0
-    state.items.map(item => {totalPrice += Number((item.price * item.quantity).toFixed(2))})
-    state.totalPrice = totalPrice
-}
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, action:PayloadAction<ICartItem>) => {
-        if (state.items.length === 0){
-            state.items.push(action.payload)
-        }else{
-            const index = state.items.findIndex(item => item.flower_id === action.payload.flower_id)
-            if (index !== -1){
-                state.items[index].quantity++
-            }else{
-                state.items.push(action.payload)
-            }
+        if (!state.items.has(action.payload.flower_id)){
+            state.items.set(action.payload.flower_id, action.payload)
+            state.totalPrice = +((action.payload.price * action.payload.quantity) + state.totalPrice).toFixed(2)
+            
         }
-        setItemsCounter(state)
-        setTotalPrice(state)
     },
     removeFromCart: (state, action:PayloadAction<number>) => {
-        if (state.items.length !== 0){
-            const index = state.items.findIndex(item => item.flower_id === action.payload)
-            if (index !== -1){
-                state.items.splice(index,1)
-                setItemsCounter(state)
-                setTotalPrice(state)
+        if (state.items.has(action.payload)){
+            let item = state.items.get(action.payload)
+            if (item){
+                state.totalPrice = +((item.price * item.quantity) - state.totalPrice).toFixed(2)
             }
+            state.items.delete(action.payload)
         }
     },
     clearCart: (state) => {
-        state.itemsCounter = 0,
-        state.items = [],
+        state.items.clear(),
         state.totalPrice = 0
     },
     disableCart: (state) => {
@@ -72,17 +54,35 @@ export const cartSlice = createSlice({
         document.body.style.overflow = 'hidden'
     },
     increaseQuantity:(state, action:PayloadAction<number>) => {
-        state.items.map(item => {if (item.flower_id === action.payload){item.quantity++}})
-        setTotalPrice(state)
+        if (state.items.has(action.payload)){
+           let item = state.items.get(action.payload)
+           if (item && item.quantity < 100){
+            item.quantity ++
+            state.items.set(action.payload,item)
+            state.totalPrice = +(item.price + state.totalPrice).toFixed(2) 
+           }
+        }
     },
     decreaseQuantity:(state, action:PayloadAction<number>) => {
-        state.items.map(item => {if (item.flower_id === action.payload){if (item.quantity != 1){item.quantity--}}})
-        setTotalPrice(state)
+        if (state.items.has(action.payload)){
+            let item = state.items.get(action.payload)
+            if (item && item.quantity != 1){
+             item.quantity --
+             state.items.set(action.payload,item)
+             state.totalPrice = +(state.totalPrice - item.price).toFixed(2) 
+            }
+         }
     },
     setQuantity:(state, action:PayloadAction<{flower_id:number,quantity:number}>) => {
         if (action.payload.quantity && action.payload.quantity >= 1){
-            state.items.map(item => {if (item.flower_id === action.payload.flower_id){item.quantity = action.payload.quantity}})
-            setTotalPrice(state)
+            if (state.items.has(action.payload.flower_id)){
+                let item = state.items.get(action.payload.flower_id)
+                if (item){
+                 state.totalPrice = +(state.totalPrice + ((action.payload.quantity - item.quantity) * item.price)).toFixed(2)
+                 item.quantity = action.payload.quantity
+                 state.items.set(action.payload.flower_id,item)
+                }
+             }
         }
     },
   },

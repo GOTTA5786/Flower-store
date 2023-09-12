@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { clearCart, disableCart } from '@/store/cartSlice';
 import Image from 'next/image';
 import CartItemQuantityBtn from '../CartItemQuantityBtn/CartItemQuantityBtn';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import DeleteFromCartBtn from '../DeleteFromCartBtn/DeleteFromCartBtn';
 import Link from 'next/link';
 
@@ -17,13 +17,39 @@ export default function CartMenu() {
     const totalPrice = useAppSelector(state => state.cart.totalPrice)
     const dispatch = useAppDispatch()
     const [isOrdered, setIsOrdered] = useState<boolean>(false)
+    let itemsArray:Array<ReactNode> = []
 
     useEffect(() => {
         setIsOrdered(false)
     }, [isActive])
-    
 
-    
+    items.forEach((value) => itemsArray.push(
+                    <div key={value.flower_id} className={styles.oneItemBlock}>
+                        <div className={styles.leftBlock}>
+                            <div className={styles.itemImg}>
+                                <Link href = {`/product/${value.flower_id}`} onClick={e => dispatch(disableCart())}>
+                                    <Image
+                                        src={`/Items_images/${value.pathtoimg}.png`}
+                                        fill={true}
+                                        alt='default'
+                                    />
+                                </Link>
+                            </div>
+                            <div className={styles.description}>
+                                <div className={styles.descriptionTop}>
+                                    <Link href = {`/product/${value.flower_id}`} 
+                                    className={styles.descriptionTitle} 
+                                    onClick={e => dispatch(disableCart())}>{value.title}</Link>
+                                    <span className={styles.descriptionPrice}>{value.price} ₽ x {value.quantity}</span>
+                                </div>
+                                <CartItemQuantityBtn quantity={value.quantity} flower_id={value.flower_id}/>
+                            </div>
+                        </div>    
+                        <div className={styles.rightBlock}>
+                            <span className={styles.itemTotalPrice}>{(value.price * value.quantity).toFixed(2)} ₽</span>
+                            <DeleteFromCartBtn flower_id={value.flower_id}/>
+                        </div>
+                    </div>))
 
   return (
     <div className={`${styles.container} ${isActive ? styles.active : ''} ${oswaldo.className}`} onClick={e => {dispatch(disableCart())}}>
@@ -34,33 +60,7 @@ export default function CartMenu() {
                     <FaXmark className={styles.xmark} onClick={e => {dispatch(disableCart())}}/>
                 </div>
                 <div className={styles.itemsBlock}>
-                    {(items.length === 0 ) ? <p className={styles.emptyCart}>Ваша корзина пуста</p> :
-                    items.map(item => {return <div key={item.flower_id} className={styles.oneItemBlock}>
-                        <div className={styles.leftBlock}>
-                            <div className={styles.itemImg}>
-                                <Link href = {`/product/${item.flower_id}`} onClick={e => dispatch(disableCart())}>
-                                    <Image
-                                        src={`/Items_images/${item.pathtoimg}.png`}
-                                        fill={true}
-                                        alt='default'
-                                    />
-                                </Link>
-                            </div>
-                            <div className={styles.description}>
-                                <div className={styles.descriptionTop}>
-                                    <Link href = {`/product/${item.flower_id}`} 
-                                    className={styles.descriptionTitle} 
-                                    onClick={e => dispatch(disableCart())}>{item.title}</Link>
-                                    <span className={styles.descriptionPrice}>{item.price} ₽ x {item.quantity}</span>
-                                </div>
-                                <CartItemQuantityBtn quantity={item.quantity} flower_id={item.flower_id}/>
-                            </div>
-                        </div>    
-                        <div className={styles.rightBlock}>
-                            <span className={styles.itemTotalPrice}>{(item.price * item.quantity).toFixed(2)} ₽</span>
-                            <DeleteFromCartBtn flower_id={item.flower_id}/>
-                        </div>
-                    </div>})}
+                    {(items.size === 0 ) ? <p className={styles.emptyCart}>Ваша корзина пуста</p> : itemsArray}
                 </div>
                 <div className={styles.footer}>
                     <span>предварительный итог : {totalPrice} руб.</span>
